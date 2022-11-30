@@ -9,12 +9,12 @@
 </template>
 <style scoped lang="scss">
 .category {
-  margin: 5rem auto;
+  margin: 7rem auto;
   display: grid;
   grid-auto-rows: 7rem;
-  grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
   justify-items: center;
-  column-gap: 2rem;
+  gap: 1rem;
   button {
     border: none;
     width: 24rem;
@@ -29,26 +29,32 @@
   .history {
     background-color: #e91e63;
     &:hover{
-        background: #f0407a;
+        background-color: #e0366f;
     }
   }
   .math {
     background-color: #1867c0;
     &:hover{
-        background: #2f81df;
+        background-color: #2779d6;
     }
   }
   .videogames {
     background-color: #009688;
     &:hover{
-        background-color: #28bbac;
+        background-color: #1dac9d;
     }
   }
   .anime {
     background-color: #00bcd4;
+    &:hover{
+        background-color: #1fc4da;
+    }
   }
   .music {
     background-color: #9c27b0;
+    &:hover{
+        background-color: #b739ce;
+    }
   }
 }
 </style>

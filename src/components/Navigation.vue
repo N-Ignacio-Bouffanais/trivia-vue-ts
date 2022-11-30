@@ -6,18 +6,18 @@
   </div>
 </template>
 
-<style scoped>
-.navigation{
+<style scoped lang="scss">
+.navigation {
   background: rgb(17, 17, 17);
   height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.navigation a {
+  a {
     font-size: 2.6rem;
     text-decoration: none;
     color: white;
     margin: 0 3rem;
+  }
 }
 </style>
