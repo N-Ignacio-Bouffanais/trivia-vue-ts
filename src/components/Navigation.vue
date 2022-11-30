@@ -7,10 +7,17 @@
 </template>
 
 <style scoped>
+.navigation{
+  background: rgb(17, 17, 17);
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .navigation a {
-    font-size: 3rem;
+    font-size: 2.6rem;
     text-decoration: none;
-    color: black;
+    color: white;
     margin: 0 3rem;
 }
 </style>

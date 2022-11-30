@@ -6,6 +6,9 @@ import Navigation from './components/Navigation.vue';
 
 <template>
     <Navigation />
+    <main>
+      <router-view></router-view>
+    </main>
 </template>
 
 <style>
@@ -13,6 +16,10 @@ import Navigation from './components/Navigation.vue';
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+body{
+  background-color: #1e1e1e;
 }
 </style>
