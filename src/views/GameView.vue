@@ -1,24 +1,36 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, unref, onMounted } from 'vue'
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
 
-function show(){
-  console.log(ref)
+let selected = ref(false)
+
+const showquestion = () => {
+  return selected.value = true
 }
+const hidequestion = () => {
+  return selected.value = false
+}
+// const category = ref(null);
+// onMounted(() => {
+//   const height = category.value.clientHeight;
+// });
 
 </script>
 <template>
   <div class="game-container">
-    <div v-if="(counterStore.counter >= 0)">
+    <div v-if="(unref(selected) === true)">
       {{ counterStore.counter }}
+      <button>►</button>
+      <button>◄</button>
+      <button @click="hidequestion" >Elegir otra categoria</button>
     </div>
     <div class="category" id="category">
-    <button @click="show()" ref="history" class="history">HISTORIA</button>
-    <button class="math">MATEMATICAS</button>
-    <button class="videogames">VIDEOJUEGOS</button>
-    <button class="anime">ANIME</button>
-    <button class="music">MUSICA</button>
+    <button @click="showquestion" class="history">HISTORIA</button>
+    <button @click="showquestion" class="math">MATEMATICAS</button>
+    <button @click="showquestion" class="videogames">VIDEOJUEGOS</button>
+    <button @click="showquestion" class="anime">ANIME</button>
+    <button @click="showquestion" class="music">MUSICA</button>
   </div>
   </div>
 </template>
