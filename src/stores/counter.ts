@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useCounterStore =  defineStore('counter',{
     state: () => ({
-        counter: 0,
+        counter: 1,
     }),
     actions:{
         incrementBy( value: number) {
@@ -10,6 +10,6 @@ export const useCounterStore =  defineStore('counter',{
         },
         decrementBy( value: number) {
             this.counter -= value;
-        }
+        },
     }
 })
