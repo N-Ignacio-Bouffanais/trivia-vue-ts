@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import Alternative from "../components/Alternative.vue";
 import { ref, unref } from "vue";
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
@@ -56,8 +57,10 @@ const hidequestion = () => {
           siguiente ►
         </button>
       </div>
+      <div class="alternatives">
+        <Alternative />
+      </div>
     </div>
-    <div class="questions"></div>
     <div v-show="unref(category_sel) === true" class="category container">
       <button @click="showquestion" class="btn history">HISTORIA</button>
       <button @click="showquestion" class="btn math">MATEMATICAS</button>
@@ -85,11 +88,11 @@ const hidequestion = () => {
   .question {
     padding: 0.5rem;
     width: 80vw;
-    p{
+    p {
       font-size: 3rem;
       color: white;
     }
-    
+
     .list-title {
       display: flex;
       align-items: center;
