@@ -9,7 +9,7 @@
 <style scoped lang="scss">
 .navigation {
   background: rgb(17, 17, 17);
-  height: 6rem;
+  height: 6.5rem;
   display: flex;
   align-items: center;
   justify-content: center;

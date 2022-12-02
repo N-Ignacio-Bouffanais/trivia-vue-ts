@@ -18,7 +18,10 @@ const hidequestion = () => {
     <div v-show="unref(selected) === true" class="question container">
       <div class="list-title">
         <h1>Pregunta numero: {{ counterStore.counter }}</h1>
-        <button class="btn largue" @click="hidequestion">
+        <button class="btn largue" @click="()=> {
+          hidequestion(),
+          counterStore.reset()
+        }">
           Elegir otra categoria
         </button>
       </div>
