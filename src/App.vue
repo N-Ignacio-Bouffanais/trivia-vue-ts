@@ -20,6 +20,6 @@ import Navigation from './components/Navigation.vue';
   font-family: 'Roboto', sans-serif;
 }
 body{
-  background-color: #1e1e1e;
+  background-color: #1a1a1a;
 }
 </style>

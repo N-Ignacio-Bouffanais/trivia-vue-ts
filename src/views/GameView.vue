@@ -17,35 +17,47 @@ const hidequestion = () => {
   <div class="game-container">
     <div v-show="unref(selected) === true" class="question container">
       <div class="list-title">
-        <h1>Pregunta numero: {{ counterStore.counter }}</h1>
-        <button class="btn largue" @click="()=> {
-          hidequestion(),
-          counterStore.reset()
-        }">
-          Elegir otra categoria
+        <p>Pregunta numero: {{ counterStore.counter }}</p>
+        <button
+          class="btn largue"
+          @click="
+            () => {
+              hidequestion(), counterStore.reset();
+            }
+          "
+        >
+          Regresar
         </button>
       </div>
+      <p>Cual de los planetas del sistema solar es el que tiene mas lunas?</p>
       <div class="arrows">
-        <button class="btn short" @click="
-          () => {
-            if (counterStore.counter > 1) {
-              counterStore.decrementBy(1);
+        <button
+          class="btn short"
+          @click="
+            () => {
+              if (counterStore.counter > 1) {
+                counterStore.decrementBy(1);
+              }
             }
-          }
-        ">
+          "
+        >
           ◄ anterior
         </button>
-        <button class="btn short" @click="
-          () => {
-            if (counterStore.counter < 8) {
-              counterStore.incrementBy(1);
+        <button
+          class="btn short"
+          @click="
+            () => {
+              if (counterStore.counter < 8) {
+                counterStore.incrementBy(1);
+              }
             }
-          }
-        ">
+          "
+        >
           siguiente ►
         </button>
       </div>
     </div>
+    <div class="questions"></div>
     <div v-show="unref(category_sel) === true" class="category container">
       <button @click="showquestion" class="btn history">HISTORIA</button>
       <button @click="showquestion" class="btn math">MATEMATICAS</button>
@@ -60,7 +72,7 @@ const hidequestion = () => {
   padding: 0 8vw;
 
   .container {
-    margin: 7rem auto;
+    margin: 6rem auto;
     justify-items: center;
     display: grid;
   }
@@ -71,46 +83,56 @@ const hidequestion = () => {
   }
 
   .question {
-    h1 {
-      font-size: 3.4rem;
+    padding: 0.5rem;
+    width: 80vw;
+    p{
+      font-size: 3rem;
       color: white;
-      margin-right: 1rem;
     }
-
+    
     .list-title {
       display: flex;
       align-items: center;
-      width: 80vw;
       justify-content: space-between;
+      height: 6rem;
+      width: 100%;
+      margin: 0.5rem 0;
+      p {
+        font-size: 2.4rem;
+        color: white;
+      }
 
       .largue {
         background-color: #ff9800;
         border-radius: 0.8rem;
-        height: 7rem;
+        height: 5rem;
+        width: 12rem;
       }
     }
 
     .arrows {
       display: flex;
-      width: 80vw;
+      width: 100%;
+      height: 4rem;
+      margin: 0.5rem 0;
     }
 
     .short {
       margin-top: 1rem;
-      margin-right: 1rem;
+      margin-right: 2rem;
     }
 
     .btn {
       color: white;
-      background-color: #1e1e1e;
+      background-color: #1a1a1a;
       font-size: 2rem;
     }
   }
 
   .category {
-    grid-auto-rows: 7rem;
     grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
-    gap: 1rem;
+    grid-auto-rows: 6rem;
+    gap: 2rem;
 
     button {
       width: 24rem;
