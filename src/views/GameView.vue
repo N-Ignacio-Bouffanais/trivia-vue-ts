@@ -31,9 +31,12 @@ const hidequestion = () => {
         </button>
       </div>
       <p>Cual de los planetas del sistema solar es el que tiene mas lunas?</p>
+      <div class="alternatives">
+        <Alternative />
+      </div>
       <div class="arrows">
         <button
-          class="btn short"
+          class="btn short back"
           @click="
             () => {
               if (counterStore.counter > 1) {
@@ -42,10 +45,10 @@ const hidequestion = () => {
             }
           "
         >
-          ◄ anterior
+          ˂
         </button>
         <button
-          class="btn short"
+          class="btn short next"
           @click="
             () => {
               if (counterStore.counter < 8) {
@@ -54,11 +57,8 @@ const hidequestion = () => {
             }
           "
         >
-          siguiente ►
+          ˃
         </button>
-      </div>
-      <div class="alternatives">
-        <Alternative />
       </div>
     </div>
     <div v-show="unref(category_sel) === true" class="category container">
@@ -72,10 +72,12 @@ const hidequestion = () => {
 </template>
 <style scoped lang="scss">
 .game-container {
-  padding: 0 8vw;
+  margin: 0 5vw;
+  background-color: #242424;
+  border-radius: 1rem;
 
   .container {
-    margin: 6rem auto;
+    margin: 3rem auto;
     justify-items: center;
     display: grid;
   }
@@ -86,11 +88,13 @@ const hidequestion = () => {
   }
 
   .question {
-    padding: 0.5rem;
+    padding: 1.2rem 0.5rem;
     width: 80vw;
     p {
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: white;
+      width: 100%;
+      margin: 0.5rem 0;
     }
 
     .list-title {
@@ -101,15 +105,16 @@ const hidequestion = () => {
       width: 100%;
       margin: 0.5rem 0;
       p {
-        font-size: 2.4rem;
-        color: white;
+        font-size: 2.2rem;
+        color: #ef5350;
       }
 
       .largue {
-        background-color: #ff9800;
+        background-color: #00B0FF;
         border-radius: 0.8rem;
-        height: 5rem;
+        height: 4.8rem;
         width: 12rem;
+        margin-right: 1rem;
       }
     }
 
@@ -118,17 +123,23 @@ const hidequestion = () => {
       width: 100%;
       height: 4rem;
       margin: 0.5rem 0;
-    }
-
-    .short {
-      margin-top: 1rem;
+      justify-content:flex-end;
+      .short {
       margin-right: 2rem;
+      border-radius: 50%;
+      width: 4rem;
+      height: 4rem;
     }
-
+    .back{
+      background-color: #e91e63;
+    }
+    .next{
+      background-color: #00E676;
+    }
+    }
     .btn {
       color: white;
-      background-color: #1a1a1a;
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
   }
 
@@ -136,7 +147,7 @@ const hidequestion = () => {
     grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
     grid-auto-rows: 6rem;
     gap: 2rem;
-
+    padding: 5rem 0;
     button {
       width: 24rem;
       height: 5.2rem;
