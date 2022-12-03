@@ -18,11 +18,11 @@ const counterStore = useCounterStore();
     } in anime_questions.slice(counterStore.counter - 1, counterStore.counter)"
     :key="id"
   >
-    <p><span>A)</span>{{ answer }}</p>
-    <p><span>B)</span>{{ alt_one }}</p>
-    <p><span>C)</span>{{ alt_two }}</p>
-    <p><span>D)</span>{{ alt_three }}</p>
-    <p><span>E)</span>{{ alt_four }}</p>
+    <p><span>A) <input type="checkbox"/> </span>{{ answer }}</p>
+    <p><span>B) <input type="checkbox"/> </span>{{ alt_one }}</p>
+    <p><span>C) <input type="checkbox"/> </span>{{ alt_two }}</p>
+    <p><span>D) <input type="checkbox"/> </span>{{ alt_three }}</p>
+    <p><span>E) <input type="checkbox"/> </span>{{ alt_four }}</p>
   </div>
 </template>
 <style lang="scss">
