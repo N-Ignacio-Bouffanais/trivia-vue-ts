@@ -38,5 +38,9 @@ const counterStore = useCounterStore();
     font-size: 2.2rem;
     margin-right: 0.5rem;
   }
+  input{
+    height: 2.2rem;
+    width: 2.2rem;
+  }
 }
 </style>
