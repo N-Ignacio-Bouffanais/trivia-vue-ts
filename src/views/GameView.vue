@@ -73,9 +73,6 @@ const hidequestion = () => {
 <style scoped lang="scss">
 .game-container {
   margin: 0 5vw;
-  background-color: #242424;
-  border-radius: 1rem;
-
   .container {
     margin: 3rem auto;
     justify-items: center;
@@ -88,8 +85,10 @@ const hidequestion = () => {
   }
 
   .question {
-    padding: 1.2rem 0.5rem;
-    width: 80vw;
+    padding: 1.2rem 2rem;
+    width: 100%;
+    background-color: #242424;
+    border-radius: 1rem;
     p {
       font-size: 2.8rem;
       color: white;
@@ -109,7 +108,7 @@ const hidequestion = () => {
       }
 
       .largue {
-        background-color: #00B0FF;
+        background-color: #00b0ff;
         border-radius: 0.8rem;
         height: 4.8rem;
         width: 12rem;
@@ -122,23 +121,26 @@ const hidequestion = () => {
       width: 100%;
       height: 4rem;
       margin: 0.5rem 0;
-      justify-content:flex-end;
+      justify-content: flex-end;
       .short {
-      margin-right: 2rem;
-      border-radius: 50%;
-      width: 4rem;
-      height: 4rem;
-    }
-    .back{
-      background-color: #e91e63;
-    }
-    .next{
-      background-color: #00E676;
-    }
+        margin-right: 2rem;
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+      }
+      .back {
+        background-color: #e91e63;
+      }
+      .next {
+        background-color: #00e676;
+      }
     }
     .btn {
       color: white;
       font-size: 1.8rem;
+    }
+    .alternatives {
+      width: 100%;
     }
   }
 

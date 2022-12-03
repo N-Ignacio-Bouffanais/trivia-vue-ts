@@ -9,11 +9,12 @@
 </template>
 <style lang="scss">
     .alternative-container{
-        width: 80vw;
+        width: 100%;
         color: white;
         p{
             font-size: 2.2rem;
             margin: 0.7rem 0;
+            width: 100%;
         }
         span{
             font-size: 2.2rem;
