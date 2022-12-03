@@ -1,4 +1,5 @@
-<script lang="ts" setup>
+<script setup lang="ts">
+import Question from "../components/Question.vue";
 import Alternative from "../components/Alternative.vue";
 import { ref, unref } from "vue";
 import { useCounterStore } from "../stores/counter";
@@ -30,9 +31,9 @@ const hidequestion = () => {
           Regresar
         </button>
       </div>
-      <p>Cual de los planetas del sistema solar es el que tiene mas lunas?</p>
+      <Question/>
       <div class="alternatives">
-        <Alternative />
+        <Alternative></Alternative>
       </div>
       <div class="arrows">
         <button
@@ -73,6 +74,7 @@ const hidequestion = () => {
 <style scoped lang="scss">
 .game-container {
   margin: 0 5vw;
+
   .container {
     margin: 3rem auto;
     justify-items: center;
@@ -85,10 +87,11 @@ const hidequestion = () => {
   }
 
   .question {
-    padding: 1.2rem 2rem;
+    padding: 2rem 3rem;
     width: 100%;
     background-color: #242424;
     border-radius: 1rem;
+
     p {
       font-size: 2.8rem;
       color: white;
@@ -102,6 +105,7 @@ const hidequestion = () => {
       height: 6rem;
       width: 100%;
       margin: 0.5rem 0;
+
       p {
         font-size: 2.4rem;
         color: #ef5350;
@@ -122,23 +126,28 @@ const hidequestion = () => {
       height: 4rem;
       margin: 0.5rem 0;
       justify-content: flex-end;
+
       .short {
         margin-right: 2rem;
         border-radius: 50%;
         width: 4rem;
         height: 4rem;
       }
+
       .back {
         background-color: #e91e63;
       }
+
       .next {
         background-color: #00e676;
       }
     }
+
     .btn {
       color: white;
       font-size: 1.8rem;
     }
+
     .alternatives {
       width: 100%;
     }
@@ -149,6 +158,7 @@ const hidequestion = () => {
     grid-auto-rows: 6rem;
     gap: 2rem;
     padding: 5rem 0;
+
     button {
       width: 24rem;
       height: 5.2rem;
