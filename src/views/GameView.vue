@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { ref, unref } from "vue";
+// Components
+// import Category from "../components/Category.vue";
 import Question from "../components/Question.vue";
 import Alternative from "../components/Alternative.vue";
-import { ref, unref } from "vue";
+
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
 
