@@ -94,7 +94,6 @@ const hidequestion = () => {
       font-size: 2.8rem;
       color: white;
       width: 100%;
-      margin: 0.5rem 0;
     }
 
     .list-title {
@@ -105,7 +104,7 @@ const hidequestion = () => {
       width: 100%;
       margin: 0.5rem 0;
       p {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
         color: #ef5350;
       }
 
