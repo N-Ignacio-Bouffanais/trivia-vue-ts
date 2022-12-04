@@ -1,8 +1,18 @@
+<script lang="ts">
+export default {
+  data() {
+    return {
+      picked: 'One'
+    }
+  }
+}
+</script>
 <script lang="ts" setup>
 import anime_questions from "../questions/anime";
 
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
+
 </script>
 
 <template>
@@ -18,11 +28,19 @@ const counterStore = useCounterStore();
     } in anime_questions.slice(counterStore.counter - 1, counterStore.counter)"
     :key="id"
   >
-    <p><span>A) <input type="checkbox"/> </span>{{ answer }}</p>
-    <p><span>B) <input type="checkbox"/> </span>{{ alt_one }}</p>
-    <p><span>C) <input type="checkbox"/> </span>{{ alt_two }}</p>
-    <p><span>D) <input type="checkbox"/> </span>{{ alt_three }}</p>
-    <p><span>E) <input type="checkbox"/> </span>{{ alt_four }}</p>
+    <!-- <p>
+      <span
+        >A) <input type="radio" id="one" v-model="picked" /> </span
+      >{{ answer }}
+    </p> -->
+    <input type="radio" id="one" value="One" v-model="picked" />
+    <label for="one">One</label>
+
+    <input type="radio" id="two" value="Two" v-model="picked" />
+    <label for="two">{{alt_one}}</label>
+    <input type="radio" id="three" value="Three" v-model="picked" />
+    <label for="three">{{answer}}</label>
+
   </div>
 </template>
 <style lang="scss">
@@ -38,9 +56,10 @@ const counterStore = useCounterStore();
     font-size: 2.2rem;
     margin-right: 0.5rem;
   }
-  input{
+  input {
     height: 2.2rem;
     width: 2.2rem;
+    border-radius: 50%;
   }
 }
 </style>
