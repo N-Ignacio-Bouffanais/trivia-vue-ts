@@ -10,12 +10,17 @@ const counterStore = useCounterStore();
 
 let selected = ref(false);
 let category_sel = ref(true);
+let cat_sel =ref('')
 
 const showquestion = () => {
   return (selected.value = true), (category_sel.value = false);
 };
 const hidequestion = () => {
   return (selected.value = false), (category_sel.value = true);
+};
+const HandleCategory = (data: any) => {
+  console.log(data)
+  return cat_sel = data
 };
 </script>
 <template>
@@ -36,7 +41,7 @@ const hidequestion = () => {
       </div>
       <Question/>
       <div class="alternatives">
-        <Alternative></Alternative>
+        <Alternative :category="cat_sel"/>
       </div>
       <div class="arrows">
         <button
@@ -66,11 +71,11 @@ const hidequestion = () => {
       </div>
     </div>
     <div v-show="unref(category_sel) === true" class="category container">
-      <button @click="showquestion" class="btn history">HISTORIA</button>
-      <button @click="showquestion" class="btn math">MATEMATICAS</button>
-      <button @click="showquestion" class="btn videogames">VIDEOJUEGOS</button>
-      <button @click="showquestion" class="btn anime">ANIME</button>
-      <button @click="showquestion" class="btn music">MUSICA</button>
+      <button @click="(showquestion(), HandleCategory('history'))"  class="btn history">HISTORIA</button>
+      <button @click="(showquestion(), HandleCategory('math'))"  class="btn math">MATEMATICAS</button>
+      <button @click="(showquestion(), HandleCategory('videogames'))"  class="btn videogames">VIDEOJUEGOS</button>
+      <button @click="(showquestion(), HandleCategory('anime'))"  class="btn anime">ANIME</button>
+      <button @click="(showquestion(), HandleCategory('music'))"  class="btn music">MUSICA</button>
     </div>
   </div>
 </template>
