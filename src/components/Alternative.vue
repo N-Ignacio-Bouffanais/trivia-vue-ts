@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      picked: 'One'
+      picked: ''
     }
   }
 }
@@ -28,18 +28,16 @@ const counterStore = useCounterStore();
     } in anime_questions.slice(counterStore.counter - 1, counterStore.counter)"
     :key="id"
   >
-    <!-- <p>
-      <span
-        >A) <input type="radio" id="one" v-model="picked" /> </span
-      >{{ answer }}
-    </p> -->
-    <input type="radio" id="one" value="One" v-model="picked" />
-    <label for="one">One</label>
-
-    <input type="radio" id="two" value="Two" v-model="picked" />
-    <label for="two">{{alt_one}}</label>
-    <input type="radio" id="three" value="Three" v-model="picked" />
-    <label for="three">{{answer}}</label>
+    <p><input type="radio" id="one" value="One" v-model="picked" />
+    <label for="one">{{alt_two}}</label></p>
+    <p><input type="radio" id="two" value="Two" v-model="picked" />
+    <label for="two">{{alt_one}}</label></p>
+    <p><input type="radio" id="three" value="Three" v-model="picked" />
+    <label for="three">{{alt_four}}</label></p>
+    <p><input type="radio" id="four" value="four" v-model="picked" />
+    <label for="four">{{answer}}</label></p>
+    <p><input type="radio" id="five" value="five" v-model="picked" />
+    <label for="five">{{alt_three}}</label></p>
 
   </div>
 </template>
@@ -51,15 +49,17 @@ const counterStore = useCounterStore();
     font-size: 2.2rem;
     margin: 0.7rem 0;
     width: 100%;
-  }
-  span {
-    font-size: 2.2rem;
-    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
   }
   input {
     height: 2.2rem;
     width: 2.2rem;
     border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  label{
+    font-size: 2.2rem;
   }
 }
 </style>
