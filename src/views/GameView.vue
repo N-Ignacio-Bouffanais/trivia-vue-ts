@@ -70,6 +70,9 @@ const Music = () => {
         </button>
       </div>
     </div>
+    <div v-if="unref(category_sel) === true" class="title">
+      <h1>Seleccione una categoria</h1>
+    </div>
     <div v-if="unref(category_sel) === true" class="category container">
       <button @click="() => { showquestion(); Anime(); }" class="btn anime">
         ANIME
@@ -92,6 +95,14 @@ const Music = () => {
 <style scoped lang="scss">
 .game-container {
   margin: 0 5vw;
+
+  .title h1 {
+    color: white;
+    font-size: 3rem;
+    margin: 3.5rem auto;
+    width: 100%;
+    text-align: center;
+  }
 
   .container {
     margin: 3rem auto;
@@ -169,7 +180,7 @@ const Music = () => {
     grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
     grid-auto-rows: 6rem;
     gap: 2rem;
-    padding: 5rem 0;
+    padding: 3rem 0;
 
     button {
       width: 24rem;
