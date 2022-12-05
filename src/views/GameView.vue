@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { ref, unref} from "vue";
-
+import { ref, unref } from "vue";
 import Question from "../components/Question.vue";
 import Alternative from "../components/Alternative.vue";
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
-
 
 let selected = ref(false);
 let category_sel = ref(true);
@@ -23,6 +21,15 @@ const Anime = () => {
 const History = () => {
   return result.value = 'history'
 }
+const Games = () => {
+  return result.value = 'games'
+}
+const Maths = () => {
+  return result.value = 'math'
+}
+const Music = () => {
+  return result.value = 'music'
+}
 
 </script>
 <template>
@@ -38,7 +45,7 @@ const History = () => {
           Regresar
         </button>
       </div>
-      <Question />
+      <Question :category="unref(result)" />
       <div class="alternatives">
         <Alternative :category="unref(result)" />
       </div>
@@ -64,13 +71,21 @@ const History = () => {
       </div>
     </div>
     <div v-if="unref(category_sel) === true" class="category container">
-      <button @click="() => { showquestion(); History() }" id="history" class="btn history">
-        HISTORIA
-      </button>
-      <button @click="() => { showquestion(); Anime();}" id="anime" class="btn anime">
+      <button @click="() => { showquestion(); Anime(); }" class="btn anime">
         ANIME
       </button>
-      
+      <button @click="() => { showquestion(); History(); }" class="btn history">
+        HISTORIA
+      </button>
+      <button @click="() => { showquestion(); Music(); }" class="btn music">
+        MUSIC
+      </button>
+      <button @click="() => { showquestion(); Games(); }" class="btn videogames">
+        VIDEOGAMES
+      </button>
+      <button @click="() => { showquestion(); Maths(); }" class="btn math">
+        MATH
+      </button>
     </div>
   </div>
 </template>
@@ -94,12 +109,6 @@ const History = () => {
     width: 100%;
     background-color: #242424;
     border-radius: 1rem;
-
-    p {
-      font-size: 2.8rem;
-      color: white;
-      width: 100%;
-    }
 
     .list-title {
       display: flex;

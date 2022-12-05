@@ -1,38 +1,61 @@
 <script lang="ts" setup>
-import { ref, onUpdated, onMounted } from "vue";
-import anime_questions from "../questions/anime";
 import history_questions from "../questions/history";
+import anime_questions from "../questions/anime";
+import games_questions from '../questions/games';
+import math_questions from "../questions/math";
 import Alternatives from "../components/Alternatives.vue";
+
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
-let option = anime_questions;
-
 
 const props = defineProps<{
   category: string;
 }>();
 
-// onMounted(() => {
-//   console.log(props)
-// })
-// const init = async () => {
-//   console.log(props);
-// }
-// init()
-
 </script>
 
 <template>
-  <div class="alternative-container" v-for="{
-    id,
-    answer,
-    alt_one,
-    alt_two,
-    alt_four,
-    alt_three,
-  } in option.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-  <p>h{{props.category}}</p>
-    <Alternatives :answer="answer" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+  <div>
+    <div v-show="props.category == 'history'" class="alternative-container" v-for="{
+        id,
+        answer,
+        alt_one,
+        alt_two,
+        alt_four,
+        alt_three,
+      } in history_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+      <Alternatives :answer="answer" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+    </div>
+    <div v-show="props.category == 'anime'" class="alternative-container" v-for="{
+      id,
+      answer,
+      alt_one,
+      alt_two,
+      alt_four,
+      alt_three,
+    } in anime_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+      <Alternatives :answer="answer" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+    </div>
+    <div v-show="props.category == 'games'" class="alternative-container" v-for="{
+          id,
+          answer,
+          alt_one,
+          alt_two,
+          alt_four,
+          alt_three,
+        } in games_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+      <Alternatives :answer="answer" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+    </div>
+    <div v-show="props.category == 'math'" class="alternative-container" v-for="{
+              id,
+              answer,
+              alt_one,
+              alt_two,
+              alt_four,
+              alt_three,
+            } in math_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+      <Alternatives :answer="answer" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+    </div>
   </div>
 </template>
 <style lang="scss">
@@ -52,7 +75,7 @@ const props = defineProps<{
     height: 2.2rem;
     width: 2.2rem;
     border-radius: 50%;
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
   }
 
   label {
