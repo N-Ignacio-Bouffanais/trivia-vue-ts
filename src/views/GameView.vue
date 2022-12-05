@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import { ref, unref } from "vue";
-// Components
-// import Category from "../components/Category.vue";
+import { ref, unref} from "vue";
+
 import Question from "../components/Question.vue";
 import Alternative from "../components/Alternative.vue";
-
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
 
+
 let selected = ref(false);
 let category_sel = ref(true);
-let cat_sel =ref('')
 
 const showquestion = () => {
   return (selected.value = true), (category_sel.value = false);
@@ -18,64 +16,61 @@ const showquestion = () => {
 const hidequestion = () => {
   return (selected.value = false), (category_sel.value = true);
 };
-const HandleCategory = (data: any) => {
-  console.log(data)
-  return cat_sel = data
-};
+let result = ref('')
+const Anime = () => {
+  return result.value = 'anime'
+}
+const History = () => {
+  return result.value = 'history'
+}
+
 </script>
 <template>
   <div class="game-container">
     <div v-show="unref(selected) === true" class="question container">
       <div class="list-title">
         <p>Pregunta numero: {{ counterStore.counter }}</p>
-        <button
-          class="btn largue"
-          @click="
-            () => {
-              hidequestion(), counterStore.reset();
-            }
-          "
-        >
+        <button class="btn largue" @click="
+          () => {
+            hidequestion(), counterStore.reset();
+          }
+        ">
           Regresar
         </button>
       </div>
-      <Question/>
+      <Question />
       <div class="alternatives">
-        <Alternative :category="cat_sel"/>
+        <Alternative :category="unref(result)" />
       </div>
       <div class="arrows">
-        <button
-          class="btn short back"
-          @click="
-            () => {
-              if (counterStore.counter > 1) {
-                counterStore.decrementBy(1);
-              }
+        <button class="btn short back" @click="
+          () => {
+            if (counterStore.counter > 1) {
+              counterStore.decrementBy(1);
             }
-          "
-        >
+          }
+        ">
           ˂
         </button>
-        <button
-          class="btn short next"
-          @click="
-            () => {
-              if (counterStore.counter < 8) {
-                counterStore.incrementBy(1);
-              }
+        <button class="btn short next" @click="
+          () => {
+            if (counterStore.counter < 8) {
+              counterStore.incrementBy(1);
             }
-          "
-        >
+          }
+        ">
           ˃
         </button>
       </div>
     </div>
-    <div v-show="unref(category_sel) === true" class="category container">
-      <button @click="(showquestion(), HandleCategory('history'))"  class="btn history">HISTORIA</button>
-      <button @click="(showquestion(), HandleCategory('math'))"  class="btn math">MATEMATICAS</button>
-      <button @click="(showquestion(), HandleCategory('videogames'))"  class="btn videogames">VIDEOJUEGOS</button>
-      <button @click="(showquestion(), HandleCategory('anime'))"  class="btn anime">ANIME</button>
-      <button @click="(showquestion(), HandleCategory('music'))"  class="btn music">MUSICA</button>
+    <div v-if="unref(category_sel) === true" class="category container">
+      <button @click="() => { showquestion(); History() }" id="history" class="btn history">
+        HISTORIA
+      </button>
+      <button @click="() => { showquestion(); Anime();}" id="anime" class="btn anime">
+        ANIME
+      </button>
+      
     </div>
   </div>
 </template>

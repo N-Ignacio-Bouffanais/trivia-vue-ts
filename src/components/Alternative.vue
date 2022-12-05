@@ -1,75 +1,38 @@
-<script lang="ts">
-export default {
-  data() {
-    return {
-      picked: "",
-    };
-  },
-};
-</script>
 <script lang="ts" setup>
+import { ref, onUpdated, onMounted } from "vue";
 import anime_questions from "../questions/anime";
 import history_questions from "../questions/history";
-
+import Alternatives from "../components/Alternatives.vue";
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
+let option = anime_questions;
+
 
 const props = defineProps<{
   category: string;
 }>();
-console.log(props.category);
-let option = anime_questions
 
-// let option: { id: number; question: string; answer: string; alt_one: string; alt_two: string; alt_three: string; alt_four: string; }[]
-// const Category = () => {
-//   if (props.category == 'history') {
-//   option = history_questions;
+// onMounted(() => {
+//   console.log(props)
+// })
+// const init = async () => {
+//   console.log(props);
 // }
-// else if(props.category == 'anime'){
-//   option = anime_questions
-// }
-// else{
-//   console.log(option)
-// }
-//   return option
-// }
-// Category()
+// init()
 
 </script>
 
 <template>
-  <div
-    class="alternative-container"
-    v-for="{
-      id,
-      answer,
-      alt_one,
-      alt_two,
-      alt_four,
-      alt_three,
-    } in option.slice(counterStore.counter - 1, counterStore.counter)"
-    :key="id"
-  >
-    <p>
-      <input type="radio" id="one" value="One" v-model="picked" />
-      <label for="one">{{ alt_two }}</label>
-    </p>
-    <p>
-      <input type="radio" id="two" value="Two" v-model="picked" />
-      <label for="two">{{ alt_one }}</label>
-    </p>
-    <p>
-      <input type="radio" id="three" value="Three" v-model="picked" />
-      <label for="three">{{ alt_four }}</label>
-    </p>
-    <p>
-      <input type="radio" id="four" value="four" v-model="picked" />
-      <label for="four">{{ answer }}</label>
-    </p>
-    <p>
-      <input type="radio" id="five" value="five" v-model="picked" />
-      <label for="five">{{ alt_three }}</label>
-    </p>
+  <div class="alternative-container" v-for="{
+    id,
+    answer,
+    alt_one,
+    alt_two,
+    alt_four,
+    alt_three,
+  } in option.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+  <p>h{{props.category}}</p>
+    <Alternatives :answer="answer" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
   </div>
 </template>
 <style lang="scss">
