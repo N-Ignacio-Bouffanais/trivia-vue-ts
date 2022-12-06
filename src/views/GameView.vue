@@ -2,6 +2,7 @@
 import { ref, unref } from "vue";
 import Question from "../components/Question.vue";
 import Alternative from "../components/Alternative.vue";
+import ArrowsBtn from "../components/ArrowsBtn.vue";
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
 
@@ -49,26 +50,7 @@ const Music = () => {
       <div class="alternatives">
         <Alternative :category="unref(result)" />
       </div>
-      <div class="arrows">
-        <button class="btn short back" @click="
-          () => {
-            if (counterStore.counter > 1) {
-              counterStore.decrementBy(1);
-            }
-          }
-        ">
-          ˂
-        </button>
-        <button class="btn short next" @click="
-          () => {
-            if (counterStore.counter < 8) {
-              counterStore.incrementBy(1);
-            }
-          }
-        ">
-          ˃
-        </button>
-      </div>
+      <ArrowsBtn />
     </div>
     <div v-if="unref(category_sel) === true" class="title">
       <h1>Seleccione una categoria</h1>
@@ -110,11 +92,6 @@ const Music = () => {
     display: grid;
   }
 
-  .btn {
-    border: none;
-    cursor: pointer;
-  }
-
   .question {
     padding: 2rem 3rem;
     width: 100%;
@@ -143,36 +120,13 @@ const Music = () => {
       }
     }
 
-    .arrows {
-      display: flex;
+    .alternatives {
       width: 100%;
-      height: 4rem;
-      margin: 0.5rem 0;
-      justify-content: flex-end;
-
-      .short {
-        margin-right: 2rem;
-        border-radius: 50%;
-        width: 4rem;
-        height: 4rem;
-      }
-
-      .back {
-        background-color: #e91e63;
-      }
-
-      .next {
-        background-color: #00e676;
-      }
     }
 
     .btn {
       color: white;
       font-size: 1.8rem;
-    }
-
-    .alternatives {
-      width: 100%;
     }
   }
 

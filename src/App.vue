@@ -21,4 +21,8 @@ import Navigation from './components/Navigation.vue';
 body {
   background-color: #1a1a1a;
 }
+.btn {
+  border: none;
+  cursor: pointer;
+}
 </style>
