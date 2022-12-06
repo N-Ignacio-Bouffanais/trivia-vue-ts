@@ -1,11 +1,7 @@
 <script lang="ts">
-export default {
-  data() {
-    return {
-      picked: "",
-    };
-  },
-};
+import { ref } from "vue";
+
+let picked = ref("");
 </script>
 <script lang="ts" setup>
 const props = defineProps<{
