@@ -4,14 +4,33 @@ This template should help get you started developing with Vue 3 and TypeScript i
 
 ## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) 
+- [VS Code](https://code.visualstudio.com/)
 
-## *Ejercicio 2: Trivia*
+## _Ejercicio 2: Trivia_
 
-construye una aplicación que cuando ingreses deberá pedir ingresar algunos datos
+* 1- Construye una aplicación que cuando ingreses deberá pedir ingresar algunos datos
+* 2- Luego de eso podré elegir una categoría de preguntas y a continuación, mostrará de manera aleatoria preguntas que se encuentran en un banco de preguntas con 5 simples respuestas, pero solo una es la correcta
+* 3- Debe pedirme responder 20 preguntas, y cuando termine la ultima, debe entregarme un mensaje de felicitaciones y agregarme al ranking de usuarios que han terminado el juego de trivia
+* 4- Finalmente debe mostrarme el tiempo que me tomó terminar esta trivia
 
-luego de eso podré elegir una categoría de preguntas y a continuación, mostrará de manera aleatoria preguntas que se encuentran en un banco de preguntas con 5 simples respuestas, pero solo una es la correcta
+## What I learned
 
-debe pedirme responder 20 preguntas, y cuando termine la ultima, debe entregarme un mensaje de felicitaciones y agregarme al ranking de usuarios que han terminado el juego de trivia
+```html
+<p>
+  <input type="radio" id="one" value="One" v-model="picked" />
+  <label for="one">{{ props.alt_two }}</label>
+</p>
+```
 
-a demás debe mostrarme el tiempo que me tomó terminar esta trivia
+```js
+import { ref } from "vue";
+
+let picked = ref("");
+const props = defineProps<{
+  answer: string;
+  alt_one: string;
+  alt_two: string;
+  alt_thee: string;
+  alt_four: string;
+}>();
+```

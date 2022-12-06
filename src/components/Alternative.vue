@@ -56,6 +56,16 @@ const props = defineProps<{
             } in math_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
       <Alternatives :answer="answer" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
     </div>
+    <div v-show="props.category == 'music'" class="alternative-container" v-for="{
+                  id,
+                  answer,
+                  alt_one,
+                  alt_two,
+                  alt_four,
+                  alt_three,
+                } in math_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+      <Alternatives :answer="answer" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+    </div>
   </div>
 </template>
 <style lang="scss">

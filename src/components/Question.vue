@@ -38,6 +38,12 @@ const props = defineProps<{
         )" :key="id">
       <p>{{ question }}</p>
     </div>
+    <div v-show="props.category == 'music'" class="alternative-container" v-for="{ id, question } in math_questions.slice(
+              counterStore.counter - 1,
+              counterStore.counter
+            )" :key="id">
+      <p>{{ question }}</p>
+    </div>
   </div>
 </template>
 <style lang="scss">
