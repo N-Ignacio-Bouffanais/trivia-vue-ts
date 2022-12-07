@@ -3,6 +3,7 @@ import { ref, unref } from "vue";
 import Question from "../components/Question.vue";
 import Alternative from "../components/Alternative.vue";
 import ArrowsBtn from "../components/ArrowsBtn.vue";
+import Timer from "../components/Timer.vue";
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
 
@@ -72,6 +73,7 @@ const Music = () => {
         MATH
       </button>
     </div>
+    <Timer />
   </div>
 </template>
 <style scoped lang="scss">
