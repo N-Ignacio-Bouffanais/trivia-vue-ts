@@ -5,7 +5,7 @@ let picked = ref("");
 </script>
 <script lang="ts" setup>
 const props = defineProps<{
-  answer: string;
+  alt_five: string;
   alt_one: string;
   alt_two: string;
   alt_thee: string;
@@ -28,7 +28,7 @@ const props = defineProps<{
     </p>
     <p>
       <input type="radio" id="four" value="four" v-model="picked" />
-      <label for="four">{{ props.answer }}</label>
+      <label for="four">{{ props.alt_five }}</label>
     </p>
     <p>
       <input type="radio" id="five" value="five" v-model="picked" />
