@@ -80,14 +80,6 @@ const Music = () => {
 .game-container {
   margin: 0 5vw;
 
-  .title h1 {
-    color: white;
-    font-size: 3rem;
-    margin: 3.5rem auto;
-    width: 100%;
-    text-align: center;
-  }
-
   .container {
     margin: 3rem auto;
     justify-items: center;
@@ -95,7 +87,7 @@ const Music = () => {
   }
 
   .question {
-    padding: 2rem 3rem;
+    padding: 2rem 5vw;
     width: 100%;
     background-color: #242424;
     border-radius: 1rem;

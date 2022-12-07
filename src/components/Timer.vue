@@ -4,10 +4,13 @@ import { ref, onMounted } from 'vue';
 let Displayminutes = ref()
 let Displayseconds = ref();
 let loaded = ref(false)
+let lowTime = ref(false)
+let midTime = ref(false)
+let enoughTime = ref(true)
 
 const seconds = 1000;
 const minutes = seconds * 60;
-const setTime = 600000;
+const setTime = 300000;
 const startTime = Date.now();
 const futureTime = startTime + setTime;
 
@@ -19,6 +22,13 @@ const Coutdown = () => {
         if (gap < 0) {
             clearInterval(timer)
             return;
+        }
+        if (gap < 150000) {
+            enoughTime.value = false
+            midTime.value = true
+        }
+        if (gap < 60000) {
+            lowTime.value = true
         }
         const mins = Math.floor(gap / minutes)
         const secs = Math.floor((gap % minutes) / seconds)
@@ -36,13 +46,15 @@ onMounted(() => {
 <template>
     <div v-if="loaded" class="Timer_container">
         <div class="minutos">
-            <p class="displays">{{ Displayminutes }}</p>
-            <p>minutos</p>
+            <p :class="[{ lowTime: lowTime }, { midTime: midTime }, { enoughTime: enoughTime }]" class="displays">{{
+                    Displayminutes
+            }}</p>
         </div>
-        <span>:</span>
+        <span :class="[{ lowTime: lowTime }, { midTime: midTime }, { enoughTime: enoughTime }]">:</span>
         <div class="segundos">
-            <p class="displays">{{ Displayseconds }}</p>
-            <p>segundos</p>
+            <p :class="[{ lowTime: lowTime }, { midTime: midTime }, { enoughTime: enoughTime }]" class="displays">{{
+                    Displayseconds
+            }}</p>
         </div>
     </div>
 </template>
@@ -51,6 +63,19 @@ onMounted(() => {
     color: white;
     display: flex;
     justify-content: center;
+
+    .enoughTime {
+        color: #00e676;
+    }
+
+    .midTime {
+        color: yellow;
+    }
+
+    .lowTime {
+        color: red;
+    }
+
 
     p {
         font-size: 1.8rem;

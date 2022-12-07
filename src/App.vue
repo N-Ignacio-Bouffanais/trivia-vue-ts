@@ -25,4 +25,11 @@ body {
   border: none;
   cursor: pointer;
 }
+.title h1 {
+  color: white;
+  font-size: 3rem;
+  margin: 3.5rem auto;
+  width: 100%;
+  text-align: center;
+}
 </style>
