@@ -1,27 +1,45 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
-let minutes = ref(0)
-let seconds = ref(0);
+let Displayminutes = ref()
+let Displayseconds = ref();
 
-// setInterval(()=> {
-//     const currDate = new Date();
-//     const launchTime = launchDate - currDate;
+const seconds = 1000;
+const minutes = seconds * 60;
+const setTime = 600000;
+const startTime = Date.now();
+const futureTime = startTime + setTime;
 
-//     seconds.value = parseInt( launchTime / 1000 );
+const Coutdown = () => {
+    const timer = setInterval(() => {
+        const currentTime = Date.now();
+        const gap = futureTime - currentTime;
 
-// })
+        if (gap < 0) {
+            clearInterval(timer)
+            return;
+        }
+        const mins = Math.floor(gap / minutes)
+        const secs = Math.floor((gap % minutes) / seconds)
+
+        Displayminutes.value = mins < 10 ? "0" + mins : mins
+        Displayseconds.value = secs < 10 ? "0" + secs : secs
+    }, 1000)
+}
+onMounted(() => {
+    Coutdown()
+})
 
 </script>
 <template>
     <div class="Timer_container">
         <div class="minutos">
-            <p class="displays">{{ minutes }}</p>
+            <p class="displays">{{ Displayminutes }}</p>
             <p>minutos</p>
         </div>
         <span>:</span>
         <div class="segundos">
-            <p class="displays">{{ seconds }}</p>
+            <p class="displays">{{ Displayseconds }}</p>
             <p>segundos</p>
         </div>
     </div>
@@ -31,12 +49,15 @@ let seconds = ref(0);
     color: white;
     display: flex;
     justify-content: center;
+
     p {
         font-size: 1.8rem;
     }
-    span{
+
+    span {
         font-size: 5rem;
     }
+
     .displays {
         font-size: 6rem;
         text-align: center;
