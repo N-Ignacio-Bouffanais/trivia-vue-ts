@@ -73,7 +73,7 @@ const Music = () => {
         MATH
       </button>
     </div>
-    <Timer />
+    <Timer v-show="unref(selected) === true"/>
   </div>
 </template>
 <style scoped lang="scss">

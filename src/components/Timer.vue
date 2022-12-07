@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 
 let Displayminutes = ref()
 let Displayseconds = ref();
+let loaded = ref(false)
 
 const seconds = 1000;
 const minutes = seconds * 60;
@@ -24,6 +25,7 @@ const Coutdown = () => {
 
         Displayminutes.value = mins < 10 ? "0" + mins : mins
         Displayseconds.value = secs < 10 ? "0" + secs : secs
+        loaded.value = true
     }, 1000)
 }
 onMounted(() => {
@@ -32,7 +34,7 @@ onMounted(() => {
 
 </script>
 <template>
-    <div class="Timer_container">
+    <div v-if="loaded" class="Timer_container">
         <div class="minutos">
             <p class="displays">{{ Displayminutes }}</p>
             <p>minutos</p>
