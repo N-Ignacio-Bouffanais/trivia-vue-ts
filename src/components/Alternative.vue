@@ -8,10 +8,11 @@ import Alternatives from "../components/Alternatives.vue";
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
 
-
 const props = defineProps<{
   category: string;
 }>();
+
+let pick = counterStore.picked
 
 </script>
 
@@ -26,7 +27,7 @@ const props = defineProps<{
         alt_three,
         answer,
       } in history_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'anime'" class="alternative-container" v-for="{
       id,
@@ -37,7 +38,7 @@ const props = defineProps<{
       alt_three,
       answer,
     } in anime_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'games'" class="alternative-container" v-for="{
           id,
@@ -48,7 +49,7 @@ const props = defineProps<{
           alt_three,
           answer,
         } in games_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'math'" class="alternative-container" v-for="{
               id,
@@ -59,7 +60,7 @@ const props = defineProps<{
               alt_three,
               answer,
             } in math_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'music'" class="alternative-container" v-for="{
                   id,
@@ -70,7 +71,7 @@ const props = defineProps<{
                   alt_three,
                   answer,
                 } in math_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
     </div>
   </div>
 </template>
