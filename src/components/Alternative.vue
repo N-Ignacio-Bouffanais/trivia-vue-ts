@@ -8,6 +8,7 @@ import Alternatives from "../components/Alternatives.vue";
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
 
+
 const props = defineProps<{
   category: string;
 }>();
