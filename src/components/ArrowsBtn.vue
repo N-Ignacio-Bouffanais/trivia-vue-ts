@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { useCounterStore } from "../stores/counter";
+
 const counterStore = useCounterStore();
+
 </script>
 <template>
     <div class="arrows">
@@ -8,6 +10,7 @@ const counterStore = useCounterStore();
             () => {
                 if (counterStore.counter > 1) {
                     counterStore.decrementBy(1);
+                    counterStore.reset_pick();
                 }
             }
         ">
@@ -17,6 +20,7 @@ const counterStore = useCounterStore();
     () => {
         if (counterStore.counter < 10) {
             counterStore.incrementBy(1);
+            counterStore.reset_pick();
         }
     }
         ">

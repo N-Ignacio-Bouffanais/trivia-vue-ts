@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useCounterStore = defineStore("counter", {
   state: () => ({
     counter: 1,
+    picked: ''
   }),
   actions: {
     incrementBy(value: number) {
@@ -13,6 +14,9 @@ export const useCounterStore = defineStore("counter", {
     },
     reset(){
       this.counter = 1
+    },
+    reset_pick(){
+      this.picked = ''
     }
   },
 });
