@@ -3,6 +3,7 @@ import history_questions from "../questions/history";
 import anime_questions from "../questions/anime";
 import games_questions from '../questions/games';
 import math_questions from "../questions/math";
+import music_questions from "../questions/music";
 
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
@@ -38,7 +39,7 @@ const props = defineProps<{
         )" :key="id">
       <p>{{ question }}</p>
     </div>
-    <div v-show="props.category == 'music'" class="alternative-container" v-for="{ id, question } in math_questions.slice(
+    <div v-show="props.category == 'music'" class="alternative-container" v-for="{ id, question } in music_questions.slice(
               counterStore.counter - 1,
               counterStore.counter
             )" :key="id">

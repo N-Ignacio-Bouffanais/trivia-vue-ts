@@ -3,6 +3,7 @@ import history_questions from "../questions/history";
 import anime_questions from "../questions/anime";
 import games_questions from '../questions/games';
 import math_questions from "../questions/math";
+import music_questions from "../questions/music";
 import Alternatives from "../components/Alternatives.vue";
 
 import { useCounterStore } from "../stores/counter";
@@ -19,59 +20,64 @@ let pick = counterStore.picked
 <template>
   <div>
     <div v-show="props.category == 'history'" class="alternative-container" v-for="{
-        id,
-        alt_five,
-        alt_one,
-        alt_two,
-        alt_four,
-        alt_three,
-        answer,
-      } in history_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      id,
+      alt_one,
+      alt_two,
+      alt_three,
+      alt_four,
+      alt_five,
+      answer,
+    } in history_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+        :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'anime'" class="alternative-container" v-for="{
       id,
-      alt_five,
       alt_one,
       alt_two,
-      alt_four,
       alt_three,
+      alt_four,
+      alt_five,
       answer,
     } in anime_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+        :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'games'" class="alternative-container" v-for="{
-          id,
-          alt_five,
-          alt_one,
-          alt_two,
-          alt_four,
-          alt_three,
-          answer,
-        } in games_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      id,
+      alt_one,
+      alt_two,
+      alt_three,
+      alt_four,
+      alt_five,
+      answer,
+    } in games_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+        :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'math'" class="alternative-container" v-for="{
-              id,
-              alt_five,
-              alt_one,
-              alt_two,
-              alt_four,
-              alt_three,
-              answer,
-            } in math_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      id,
+      alt_one,
+      alt_two,
+      alt_three,
+      alt_four,
+      alt_five,
+      answer,
+    } in math_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+        :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'music'" class="alternative-container" v-for="{
-                  id,
-                  alt_five,
-                  alt_one,
-                  alt_two,
-                  alt_four,
-                  alt_three,
-                  answer,
-                } in math_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three" :alt_four="alt_four" />
+      id,
+      alt_one,
+      alt_two,
+      alt_three,
+      alt_four,
+      alt_five,
+      answer,
+    } in music_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
+      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+        :alt_four="alt_four" />
     </div>
   </div>
 </template>
