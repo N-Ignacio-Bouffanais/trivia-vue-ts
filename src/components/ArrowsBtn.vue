@@ -15,7 +15,7 @@ const counterStore = useCounterStore();
         </button>
         <button class="btn short next" @click="
     () => {
-        if (counterStore.counter < 8) {
+        if (counterStore.counter < 10) {
             counterStore.incrementBy(1);
         }
     }
@@ -42,12 +42,12 @@ const counterStore = useCounterStore();
 
     .back {
         background-color: #e91e63;
-        padding-right: 0.4rem;
+        padding-right: 0.2rem;
     }
 
     .next {
         background-color: #00e676;
-        padding-left: 0.4rem;
+        padding-left: 0.2rem;
     }
 
     .btn {
