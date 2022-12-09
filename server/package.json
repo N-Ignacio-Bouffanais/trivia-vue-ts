@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "This is the packege.json for backend folder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Typescript",
+    "Express",
+    "MongoDB",
+    ""
+  ],
+  "author": "Nicolas Bouffanais",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.18.2",
+    "mongoose": "6.8.0",
+    "morgan": "1.10.0"
+  },
+  "devDependencies": {
+    "typescript": "4.9.4"
+  }
+}
