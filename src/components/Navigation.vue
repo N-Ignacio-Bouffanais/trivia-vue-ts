@@ -17,7 +17,7 @@
     font-size: 2.6rem;
     text-decoration: none;
     color: white;
-    margin: 0 3rem;
+    margin: 0 3vw;
   }
 }
 </style>

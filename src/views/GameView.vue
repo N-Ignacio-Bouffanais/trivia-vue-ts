@@ -79,7 +79,7 @@ const Music = () => {
 </template>
 <style scoped lang="scss">
 .game-container {
-  margin: 0 5vw;
+  margin: 0 6vw;
 
   .container {
     margin: 3rem auto;
