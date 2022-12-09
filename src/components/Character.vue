@@ -3,19 +3,19 @@
         <div class="character">
             <h2>Elige un avatar</h2>
             <div class="characters">
-                <button class="avatar">
+                <button class="avatar ninja">
                     <font-awesome-icon icon="fa-solid fa-user-ninja" />
                 </button>
-                <button class="avatar">
+                <button class="avatar astronaut">
                     <font-awesome-icon icon="fa-solid fa-user-astronaut" />
                 </button>
-                <button class="avatar">
+                <button class="avatar secret">
                     <font-awesome-icon icon="fa-solid fa-user-secret" />
                 </button>
-                <button class="avatar">
+                <button class="avatar robot">
                     <font-awesome-icon icon="fa-solid fa-robot" />
                 </button>
-                <button class="avatar">
+                <button class="avatar wizard">
                     <font-awesome-icon icon="fa-solid fa-hat-wizard" />
                 </button>
 
@@ -55,7 +55,7 @@
         font-size: 2.8rem;
         margin: 2rem auto;
         letter-spacing: 0.1rem;
-        color: springgreen;
+        color: #eb3936;
         width: 30rem;
         text-align: center;
     }
@@ -67,7 +67,6 @@
             border: none;
             width: 7.5rem;
             height: 7.5rem;
-            background-color: purple;
             border-radius: 50%;
             margin: 1rem;
             display: flex;
@@ -80,8 +79,23 @@
             svg {
                 width: 4.5rem;
                 height: 4.5rem;
-                color: white;
+                color: black;
             }
+        }
+        .ninja{
+            background-color: rgb(160, 0, 160);
+        }
+        .secret{
+            background-color: yellow;
+        }
+        .astronaut{
+            background-color: springgreen;
+        }
+        .robot{
+            background-color: #00b0ff;
+        }
+        .wizard{
+            background-color: #f500a7;
         }
     }
 }

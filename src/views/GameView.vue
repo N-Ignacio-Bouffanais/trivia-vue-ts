@@ -104,7 +104,7 @@ const Music = () => {
 
       p {
         font-size: 2.4rem;
-        color: #ef5350;
+        color: #eb3936;
       }
 
       .largue {
