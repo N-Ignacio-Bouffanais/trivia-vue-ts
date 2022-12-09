@@ -52,6 +52,7 @@
             color: white;
             background-color: #19c762;
             font-size: 2rem;
+            cursor: pointer;
         }
     }
 
@@ -74,12 +75,14 @@
         margin: 2rem auto;
         letter-spacing: 0.1rem;
         color: #eb3936;
-        width: 30rem;
+        width: 28rem;
         text-align: center;
     }
 
     .characters {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
         .avatar {
             border: none;
