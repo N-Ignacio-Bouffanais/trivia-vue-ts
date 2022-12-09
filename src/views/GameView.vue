@@ -9,12 +9,13 @@ const counterStore = useCounterStore();
 
 let selected = ref(false);
 let category_sel = ref(true);
+let init = ref(false);
 
 const showquestion = () => {
-  return (selected.value = true), (category_sel.value = false);
+  return (selected.value = true), (category_sel.value = false), (init.value = true);
 };
 const hidequestion = () => {
-  return (selected.value = false), (category_sel.value = true);
+  return (selected.value = false), (category_sel.value = true), (init.value = false);
 };
 let result = ref('')
 const Anime = () => {
@@ -73,7 +74,7 @@ const Music = () => {
         MATH
       </button>
     </div>
-    <Timer v-show="unref(selected) === true"/>
+    <Timer :init="unref(init)" v-if="unref(selected) === true" />
   </div>
 </template>
 <style scoped lang="scss">
