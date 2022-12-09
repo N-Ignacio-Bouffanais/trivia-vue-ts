@@ -54,6 +54,7 @@ const Music = () => {
       </div>
       <ArrowsBtn />
     </div>
+    <Timer :init="unref(init)" v-if="unref(selected) === true" />
     <div v-if="unref(category_sel) === true" class="title">
       <h1>Seleccione una categoria</h1>
     </div>
@@ -74,7 +75,6 @@ const Music = () => {
         MATH
       </button>
     </div>
-    <Timer :init="unref(init)" v-if="unref(selected) === true" />
   </div>
 </template>
 <style scoped lang="scss">
@@ -92,6 +92,7 @@ const Music = () => {
     width: 100%;
     background-color: #242424;
     border-radius: 1rem;
+    outline: #00bcd4 solid 0.2rem;
 
     .list-title {
       display: flex;
