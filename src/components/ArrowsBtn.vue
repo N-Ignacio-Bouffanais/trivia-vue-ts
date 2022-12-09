@@ -46,17 +46,14 @@ const counterStore = useCounterStore();
 
     .back {
         background-color: #e91e63;
-        padding-right: 0.2rem;
     }
 
     .next {
         background-color: #00e676;
-        padding-left: 0.2rem;
     }
 
     .btn {
         color: white;
-        font-size: 1.8rem;
     }
 }
 </style>
