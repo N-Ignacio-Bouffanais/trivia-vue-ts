@@ -21,13 +21,14 @@
 
             </div>
         </div>
-        <form action="" method="post">
+        <form class="form" action="" method="post">
             <p>
                 <input type="text" name="name" id="name" placeholder="Ingrese su nombre" />
             </p>
             <p>
                 <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" />
             </p>
+            <button class="submit-button">Listo</button>
         </form>
     </div>
 </template>
@@ -37,6 +38,22 @@
     flex-direction: column;
     align-items: center;
     margin: 3rem auto;
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .submit-button {
+            border: none;
+            width: 15rem;
+            height: 5rem;
+            border-radius: 0.7rem;
+            color: white;
+            background-color: #19c762;
+            font-size: 2rem;
+        }
+    }
 
     input {
         border: none;
@@ -51,6 +68,7 @@
 
 .character {
     margin: 2rem auto;
+
     h2 {
         font-size: 2.8rem;
         margin: 2rem auto;
@@ -72,29 +90,36 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            &:hover{
+
+            &:hover {
                 transform: translateX(0) scale(1.05);
                 cursor: pointer;
             }
+
             svg {
                 width: 4.5rem;
                 height: 4.5rem;
                 color: black;
             }
         }
-        .ninja{
+
+        .ninja {
             background-color: rgb(160, 0, 160);
         }
-        .secret{
+
+        .secret {
             background-color: yellow;
         }
-        .astronaut{
+
+        .astronaut {
             background-color: springgreen;
         }
-        .robot{
+
+        .robot {
             background-color: #00b0ff;
         }
-        .wizard{
+
+        .wizard {
             background-color: #f500a7;
         }
     }
