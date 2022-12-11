@@ -23,10 +23,10 @@
         </div>
         <form class="form" action="" method="post">
             <p>
-                <input type="text" name="name" id="name" placeholder="Ingrese su nombre" />
+                <input type="text" name="name" id="name" placeholder="Enter your name" />
             </p>
             <p>
-                <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" />
+                <input type="text" name="apellido" id="apellido" placeholder="Enter your last name" />
             </p>
             <button class="submit-button">Ready</button>
         </form>
