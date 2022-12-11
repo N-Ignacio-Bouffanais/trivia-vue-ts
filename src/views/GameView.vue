@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import { ref, unref } from "vue";
-import Question from "../components/Question.vue";
-import Alternative from "../components/Alternative.vue";
-import ArrowsBtn from "../components/ArrowsBtn.vue";
-import Timer from "../components/Timer.vue";
+import { ref, unref, defineAsyncComponent } from "vue";
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
 
@@ -34,6 +30,11 @@ const Music = () => {
   return result.value = 'music'
 }
 
+const ArrowsBtn = defineAsyncComponent(() => import("../components/ArrowsBtn.vue"));
+const Question = defineAsyncComponent(() => import("../components/Question.vue"));
+const Timer = defineAsyncComponent(() => import("../components/Timer.vue"));
+const Alternative = defineAsyncComponent(() => import("../components/Alternative.vue"));
+
 </script>
 <template>
   <div class="game-container">
@@ -48,13 +49,21 @@ const Music = () => {
           Regresar
         </button>
       </div>
-      <Question :category="unref(result)" />
+      <Suspense>
+        <Question :category="unref(result)" />
+      </Suspense>
       <div class="alternatives">
-        <Alternative :category="unref(result)" />
+        <Suspense>
+          <Alternative :category="unref(result)" />
+        </Suspense>
       </div>
-      <ArrowsBtn />
+      <Suspense>
+        <ArrowsBtn />
+      </Suspense>
     </div>
-    <Timer :init="unref(init)" v-if="unref(selected) === true" />
+    <Suspense>
+      <Timer :init="unref(init)" v-if="unref(selected) === true" />
+    </Suspense>
     <div v-if="unref(category_sel) === true" class="title">
       <h1>Seleccione una categoria</h1>
     </div>
