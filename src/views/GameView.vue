@@ -112,7 +112,7 @@ const Music = () => {
         border-radius: 0.8rem;
         height: 4.8rem;
         width: 12rem;
-        margin-right: 1rem;
+        margin: 0 0.8rem;
       }
     }
 
