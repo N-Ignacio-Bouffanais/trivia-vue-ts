@@ -1,7 +1,7 @@
 <template>
     <div class="form-container">
         <div class="character">
-            <h2>Elige un avatar</h2>
+            <h2>Select an avatar</h2>
             <div class="characters">
                 <button class="avatar ninja">
                     <font-awesome-icon icon="fa-solid fa-user-ninja" />
@@ -28,7 +28,7 @@
             <p>
                 <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" />
             </p>
-            <button class="submit-button">Listo</button>
+            <button class="submit-button">Ready</button>
         </form>
     </div>
 </template>
@@ -63,7 +63,7 @@
         font-size: 2rem;
         border-radius: 0.7rem;
         padding-left: 1.5rem;
-        margin: 2rem auto;
+        margin: 0.5rem auto 2.5rem;
     }
 }
 
