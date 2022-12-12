@@ -99,7 +99,7 @@ const Alternative = defineAsyncComponent(() => import("../components/Alternative
     h1{
       font-size: 2.8rem;
       width: 25rem;
-      margin: 3rem auto 1rem;
+      margin: 4rem auto;
       color: white;
       text-align: center;
     }
@@ -148,6 +148,7 @@ const Alternative = defineAsyncComponent(() => import("../components/Alternative
     grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
     grid-auto-rows: 6rem;
     gap: 2rem;
+    align-items: center;
 
     button {
       width: 24rem;
