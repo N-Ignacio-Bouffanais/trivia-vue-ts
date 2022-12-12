@@ -50,7 +50,16 @@ const handleSubmit = () => {
     font-size: 2.2rem;
     text-decoration: none;
     color: white;
-    margin: 0.8rem 2vw;
+    margin: 0.5rem 2vw;
+  }
+  button{
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 2.2rem;
+    color: white;
+    background-color: rgb(17, 17, 17);
+    cursor: pointer;
+    margin: 0.5rem 2vw;
   }
 }
 </style>
