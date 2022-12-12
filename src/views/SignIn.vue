@@ -1,0 +1,86 @@
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "vue-router";
+
+let email = ref("");
+let password = ref("");
+let errMsg = ref("");
+const router = useRouter();
+
+const register = () => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email.value, password.value)
+        .then((data) => {
+            console.log("Succesfully signed in!")
+            console.log(auth.currentUser)
+            router.push('/game')
+        })
+        .catch((error) => {
+            console.log(error.code)
+            switch (error.code){
+                case "auth/invalid-email":
+                    errMsg.value = "Invalid email";
+                    break;
+                case "auth/user-not-found":
+                    errMsg.value = "No account with that email was found";
+                    break;
+                case "auth/wrong-password":
+                    errMsg.value = "Incorrect password";
+                    break;
+                default:
+                    errMsg.value = "Email or password was incorrect";
+                    break;
+            }
+        })
+}
+const signInWithGoogle = () => {
+
+}
+
+</script>
+<template>
+    <div class="register">
+        <h1>Sign In to an Account</h1>
+        <p><input type="text" placeholder="Email" v-model="email"></p>
+        <p><input type="password" placeholder="Password" v-model="password"></p>
+        <p v-if="errMsg">{{errMsg}}</p>
+        <p><button style="background-color: springgreen;" @click="register">Submit</button></p>
+        <p><button @click="signInWithGoogle">Sign In With Google</button></p>
+    </div>
+</template>
+<style lang="scss">
+.register {
+    margin: 3rem 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-size: 3rem;
+        color: white;
+        margin: 2rem;
+    }
+
+    input {
+        border: none;
+        width: 25rem;
+        height: 4rem;
+        margin: 1rem;
+        border-radius: 0.5rem;
+        padding-left: 1rem;
+        outline: none;
+        font-size: 1.4rem;
+    }
+
+    button {
+        border: none;
+        width: 25rem;
+        height: 3.5rem;
+        border-radius: 0.5rem;
+        margin: 1rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+}
+</style>

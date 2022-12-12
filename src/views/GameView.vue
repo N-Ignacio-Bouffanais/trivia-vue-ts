@@ -6,6 +6,7 @@ const counterStore = useCounterStore();
 let selected = ref(false);
 let category_sel = ref(true);
 let init = ref(false);
+let title = "Select a category"
 
 const showquestion = () => {
   return (selected.value = true), (category_sel.value = false), (init.value = true);
@@ -34,6 +35,7 @@ const ArrowsBtn = defineAsyncComponent(() => import("../components/ArrowsBtn.vue
 const Question = defineAsyncComponent(() => import("../components/Question.vue"));
 const Timer = defineAsyncComponent(() => import("../components/Timer.vue"));
 const Alternative = defineAsyncComponent(() => import("../components/Alternative.vue"));
+const Title = defineAsyncComponent(()=> import("../components/Title.vue"));
 
 </script>
 <template>
@@ -64,9 +66,9 @@ const Alternative = defineAsyncComponent(() => import("../components/Alternative
     <Suspense>
       <Timer :init="unref(init)" v-if="unref(selected) === true" />
     </Suspense>
-    <div v-if="unref(category_sel) === true" class="title">
-      <h1>Select a category</h1>
-    </div>
+    <Suspense>
+      <Title v-if="unref(category_sel) === true" :title="title"/>
+    </Suspense>
     <div v-if="unref(category_sel) === true" class="category container">
       <button @click="() => { showquestion(); Anime(); }" class="btn anime">
         ANIME

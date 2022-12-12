@@ -1,9 +1,12 @@
 <script lang="ts" setup>
-import Character from '../components/Character.vue';
+import { defineAsyncComponent } from "vue";
+const Title = defineAsyncComponent(() => import('../components/Title.vue'));
+
+let title = "Login"
 </script>
 <template>
     <div class="home-container">
-        <Character />
+        <Title :title="title"/>
     </div>
 </template>
 <style lang="scss">

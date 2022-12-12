@@ -1,7 +1,11 @@
+<script lang="ts" setup>
+import { defineAsyncComponent } from "vue";
+const Title = defineAsyncComponent(() => import('../components/Title.vue'));
+
+let title = "Ranking"
+</script>
 <template>
-    <div class="title">
-        <h1>Ranking</h1>
-    </div>
+    <Title :title="title"/>
 </template>
 <style lang="scss">
 </style>
