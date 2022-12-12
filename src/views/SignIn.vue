@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "vue-router";
 
 let email = ref("");
@@ -35,7 +35,15 @@ const register = () => {
         })
 }
 const signInWithGoogle = () => {
-
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(getAuth(), provider)
+        .then((result) => {
+            console.log(result.user);
+            router.push("/game")
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 }
 
 </script>
@@ -61,12 +69,16 @@ const signInWithGoogle = () => {
         color: white;
         margin: 2rem;
     }
+    p{
+        color: white;
+        font-size: 2rem;
+        margin: 1rem;
+    }
 
     input {
         border: none;
         width: 25rem;
         height: 4rem;
-        margin: 1rem;
         border-radius: 0.5rem;
         padding-left: 1rem;
         outline: none;
@@ -78,7 +90,6 @@ const signInWithGoogle = () => {
         width: 25rem;
         height: 3.5rem;
         border-radius: 0.5rem;
-        margin: 1rem;
         font-size: 1.8rem;
         cursor: pointer;
     }

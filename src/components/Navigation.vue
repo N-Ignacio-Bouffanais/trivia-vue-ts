@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const isLoggedIn = ref(false);
-let auth;
+let auth:any;
 
 onMounted(()=>{
   auth = getAuth();
@@ -33,11 +33,6 @@ const handleSubmit = () => {
     <router-link to="/register">Register</router-link>
     <router-link to="/signin">Signin</router-link>
     <button @click="handleSubmit" v-if="isLoggedIn">Sing out</button>
-    <div class="avatar robot">
-      <font-awesome-icon icon="fa-solid fa-user-astronaut" />
-      <p>User</p>
-      <p>.B</p>
-    </div>
   </div>
 </template>
 
@@ -57,32 +52,5 @@ const handleSubmit = () => {
     color: white;
     margin: 0.8rem 2vw;
   }
-
-  .avatar {
-    width: 10rem;
-    height: 4rem;
-    border-radius: 3rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 1rem;
-
-    svg {
-      width: 2.8rem;
-      height: 2.8rem;
-      color: white;
-      margin-right: 0.3rem;
-    }
-    p{
-      color: white;
-      font-size: 1.4rem;
-      cursor: default;
-    }
-
-  }
-
-    .robot {
-      background-color: #00b0ff;
-    }
 }
 </style>

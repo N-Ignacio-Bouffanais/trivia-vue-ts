@@ -30,7 +30,6 @@ const signInWithGoogle = () => {
         })
 }
 
-
 </script>
 <template>
     <div class="register">
