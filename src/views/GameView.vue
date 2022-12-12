@@ -6,7 +6,6 @@ const counterStore = useCounterStore();
 let selected = ref(false);
 let category_sel = ref(true);
 let init = ref(false);
-let title = "Select a category"
 
 const showquestion = () => {
   return (selected.value = true), (category_sel.value = false), (init.value = true);
@@ -35,7 +34,6 @@ const ArrowsBtn = defineAsyncComponent(() => import("../components/ArrowsBtn.vue
 const Question = defineAsyncComponent(() => import("../components/Question.vue"));
 const Timer = defineAsyncComponent(() => import("../components/Timer.vue"));
 const Alternative = defineAsyncComponent(() => import("../components/Alternative.vue"));
-const Title = defineAsyncComponent(()=> import("../components/Title.vue"));
 
 </script>
 <template>
@@ -66,9 +64,9 @@ const Title = defineAsyncComponent(()=> import("../components/Title.vue"));
     <Suspense>
       <Timer :init="unref(init)" v-if="unref(selected) === true" />
     </Suspense>
-    <Suspense>
-      <Title v-if="unref(category_sel) === true" :title="title"/>
-    </Suspense>
+    <div class="title" v-if="unref(category_sel) === true">
+      <h1>Select a category</h1>
+    </div>
     <div v-if="unref(category_sel) === true" class="category container">
       <button @click="() => { showquestion(); Anime(); }" class="btn anime">
         ANIME
@@ -96,6 +94,15 @@ const Title = defineAsyncComponent(()=> import("../components/Title.vue"));
     margin: 3rem auto;
     justify-items: center;
     display: grid;
+  }
+  .title{
+    h1{
+      font-size: 2.8rem;
+      width: 25rem;
+      margin: 3rem auto 1rem;
+      color: white;
+      text-align: center;
+    }
   }
 
   .question {
@@ -141,7 +148,6 @@ const Title = defineAsyncComponent(()=> import("../components/Title.vue"));
     grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
     grid-auto-rows: 6rem;
     gap: 2rem;
-    padding: 3rem 0;
 
     button {
       width: 24rem;

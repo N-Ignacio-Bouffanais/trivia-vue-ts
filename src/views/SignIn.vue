@@ -18,7 +18,7 @@ const register = () => {
         })
         .catch((error) => {
             console.log(error.code)
-            switch (error.code){
+            switch (error.code) {
                 case "auth/invalid-email":
                     errMsg.value = "Invalid email";
                     break;
@@ -52,9 +52,9 @@ const signInWithGoogle = () => {
         <h1>Sign In to an Account</h1>
         <p><input type="text" placeholder="Email" v-model="email"></p>
         <p><input type="password" placeholder="Password" v-model="password"></p>
-        <p v-if="errMsg">{{errMsg}}</p>
-        <p><button style="background-color: springgreen;" @click="register">Submit</button></p>
-        <p><button @click="signInWithGoogle">Sign In With Google</button></p>
+        <p v-if="errMsg">{{ errMsg }}</p>
+        <p><button style="background-color: #009688;" @click="register">Submit</button></p>
+        <p><button style="background-color: #2196f3;" @click="signInWithGoogle">Sign In With Google</button></p>
     </div>
 </template>
 <style lang="scss">
@@ -65,14 +65,16 @@ const signInWithGoogle = () => {
     align-items: center;
 
     h1 {
-        font-size: 3rem;
-        color: white;
-        margin: 2rem;
+        font-size: 3.2rem;
+        color: #e91e63;
+        text-align: center;
+        margin: 2.2rem;
     }
-    p{
+
+    p {
         color: white;
         font-size: 2rem;
-        margin: 1rem;
+        margin: 1.2rem;
     }
 
     input {
@@ -88,7 +90,7 @@ const signInWithGoogle = () => {
     button {
         border: none;
         width: 25rem;
-        height: 3.5rem;
+        height: 4rem;
         border-radius: 0.5rem;
         font-size: 1.8rem;
         cursor: pointer;
