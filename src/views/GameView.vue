@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, unref, defineAsyncComponent } from "vue";
+import Alternative from "../components/Alternative.vue";
 import { useCounterStore } from "../stores/counter";
 const counterStore = useCounterStore();
 
@@ -33,7 +34,6 @@ const Music = () => {
 const ArrowsBtn = defineAsyncComponent(() => import("../components/ArrowsBtn.vue"));
 const Question = defineAsyncComponent(() => import("../components/Question.vue"));
 const Timer = defineAsyncComponent(() => import("../components/Timer.vue"));
-const Alternative = defineAsyncComponent(() => import("../components/Alternative.vue"));
 
 </script>
 <template>
