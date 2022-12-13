@@ -17,23 +17,23 @@ const props = defineProps<{
 <template>
   <div>
     <p>
-      <input type="radio" id="one" value="One" v-model="pick" />
+      <input type="radio" id="one" value="One" v-model="pick" autocomplete="off"/>
       <label for="one">{{ props.alt_two }}</label>
     </p>
     <p>
-      <input type="radio" id="two" value="Two" v-model="pick" />
+      <input type="radio" id="two" value="Two" v-model="pick" autocomplete="off"/>
       <label for="two">{{ props.alt_one }}</label>
     </p>
     <p>
-      <input type="radio" id="three" value="Three" v-model="pick" />
+      <input type="radio" id="three" value="Three" v-model="pick" autocomplete="off"/>
       <label for="three">{{ props.alt_four }}</label>
     </p>
     <p>
-      <input type="radio" id="four" value="four" v-model="pick" />
+      <input type="radio" id="four" value="four" v-model="pick" autocomplete="off"/>
       <label for="four">{{ props.alt_five }}</label>
     </p>
     <p>
-      <input type="radio" id="five" value="five" v-model="pick" />
+      <input type="radio" id="five" value="five" v-model="pick" autocomplete="off"/>
       <label for="five">{{ props.alt_thee }}</label>
     </p>
   </div>
