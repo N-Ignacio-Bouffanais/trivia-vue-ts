@@ -53,9 +53,7 @@ const Alternative = defineAsyncComponent(() => import("../components/Alternative
         <Question :category="unref(result)" />
       </Suspense>
       <div class="alternatives">
-        <Suspense>
-          <Alternative :category="unref(result)" />
-        </Suspense>
+        <Alternative :category="unref(result)" />
       </div>
       <Suspense>
         <ArrowsBtn />
