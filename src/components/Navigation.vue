@@ -27,12 +27,12 @@ const handleSubmit = () => {
 </script>
 <template>
   <div class="navigation">
-    <router-link to="/">Home</router-link>
+    <router-link to="/">Inicio</router-link>
     <router-link to="/game">Game</router-link>
     <router-link to="/ranking">Ranking</router-link>
-    <router-link to="/register">Register</router-link>
-    <router-link to="/signin">Signin</router-link>
-    <button @click="handleSubmit" v-if="isLoggedIn">Sing out</button>
+    <router-link to="/register">Registo</router-link>
+    <router-link to="/signin">Ingreso</router-link>
+    <button @click="handleSubmit" v-if="isLoggedIn">Cerrar Sesion</button>
   </div>
 </template>
 

@@ -6,7 +6,7 @@ const counterStore = useCounterStore();
 </script>
 <template>
     <div class="arrows">
-        <button class="btn short back" @click="
+        <button  v-show="counterStore.counter > 1" class="btn short back" @click="
             () => {
                 if (counterStore.counter > 1) {
                     counterStore.decrementBy(1);
@@ -16,7 +16,7 @@ const counterStore = useCounterStore();
         ">
             ◀
         </button>
-        <button class="btn short next" @click="
+        <button v-show="counterStore.counter < 10" class="btn short next" @click="
     () => {
         if (counterStore.counter < 10) {
             counterStore.incrementBy(1);

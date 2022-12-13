@@ -78,7 +78,7 @@ const Alternative = defineAsyncComponent(() => import("../components/Alternative
         MUSICA
       </button>
       <button @click="() => { showquestion(); Games(); }" class="btn videogames">
-        VIDEOGAMES
+        VIDEOJUEGOS
       </button>
       <button @click="() => { showquestion(); Maths(); }" class="btn math">
         MATEMÁTICAS
