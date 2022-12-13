@@ -40,7 +40,7 @@ const handleSubmit = () => {
 .navigation {
   background: rgb(17, 17, 17);
   min-height: 6.5rem;
-  padding: 0.8rem 0;
+  padding: 0.8rem 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
