@@ -33,7 +33,7 @@ const signInWithGoogle = () => {
 </script>
 <template>
     <div class="register">
-        <h1>Create an Account</h1>
+        <h1>Crear una cuenta</h1>
         <p><input type="text" placeholder="Email" v-model="email"></p>
         <p><input type="password" placeholder="Password" v-model="password"></p>
         <p><button style="background-color: #009688;" @click="register">Submit</button></p>

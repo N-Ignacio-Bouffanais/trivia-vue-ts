@@ -40,13 +40,13 @@ const Alternative = defineAsyncComponent(() => import("../components/Alternative
   <div class="game-container">
     <div v-show="unref(selected) === true" class="question container">
       <div class="list-title">
-        <p>Question number: {{ counterStore.counter }}</p>
+        <p>Pregunta N°: {{ counterStore.counter }}</p>
         <button class="btn largue" @click="
           () => {
             hidequestion(), counterStore.reset();
           }
         ">
-          Back
+          Regresar
         </button>
       </div>
       <Suspense>
@@ -65,23 +65,23 @@ const Alternative = defineAsyncComponent(() => import("../components/Alternative
       <Timer :init="unref(init)" v-if="unref(selected) === true" />
     </Suspense>
     <div class="title" v-if="unref(category_sel) === true">
-      <h1>Select a category</h1>
+      <h1>Selecciona una categoria</h1>
     </div>
     <div v-if="unref(category_sel) === true" class="category container">
       <button @click="() => { showquestion(); Anime(); }" class="btn anime">
         ANIME
       </button>
       <button @click="() => { showquestion(); History(); }" class="btn history">
-        HISTORY
+        HISTORIA
       </button>
       <button @click="() => { showquestion(); Music(); }" class="btn music">
-        MUSIC
+        MUSICA
       </button>
       <button @click="() => { showquestion(); Games(); }" class="btn videogames">
         VIDEOGAMES
       </button>
       <button @click="() => { showquestion(); Maths(); }" class="btn math">
-        MATH
+        MATEMÁTICAS
       </button>
     </div>
   </div>

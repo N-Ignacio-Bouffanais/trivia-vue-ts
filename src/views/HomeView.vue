@@ -8,9 +8,9 @@ const Play = () => {
 <template>
     <div class="home-container">
         <h1>Trivia game</h1>
-        <p>- You will can choose between five categories: Videogames, Anime, Music, History and Maths.</p>
-        <p>- At the end of the game you will be able to see your results and the global ranking of the game. Good luck!!</p>
-        <button @click="Play()">Let's play</button>
+        <p>- Podrás elegir entre cinco categorías: Videojuegos, Anime, Música, Historia y Matemáticas.</p>
+        <p>- Al final del juego podrás ver tus resultados y la clasificación global del juego. ¡¡Buena suerte!!</p>
+        <button @click="Play()">Juguemos!</button>
     </div>
 </template>
 <style lang="scss">
