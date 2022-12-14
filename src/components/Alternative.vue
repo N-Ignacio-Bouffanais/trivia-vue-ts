@@ -13,7 +13,6 @@ const props = defineProps<{
   category: string;
 }>();
 
-let pick = counterStore.picked
 
 </script>
 
@@ -28,7 +27,7 @@ let pick = counterStore.picked
       alt_five,
       answer,
     } in history_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+      <Alternatives :answer="answer" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
         :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'anime'" class="alternative-container" v-for="{
@@ -40,7 +39,7 @@ let pick = counterStore.picked
       alt_five,
       answer,
     } in anime_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+      <Alternatives :answer="answer" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
         :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'games'" class="alternative-container" v-for="{
@@ -52,7 +51,7 @@ let pick = counterStore.picked
       alt_five,
       answer,
     } in games_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+      <Alternatives :answer="answer" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
         :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'math'" class="alternative-container" v-for="{
@@ -64,7 +63,7 @@ let pick = counterStore.picked
       alt_five,
       answer,
     } in math_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+      <Alternatives :answer="answer" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
         :alt_four="alt_four" />
     </div>
     <div v-show="props.category == 'music'" class="alternative-container" v-for="{
@@ -76,7 +75,7 @@ let pick = counterStore.picked
       alt_five,
       answer,
     } in music_questions.slice(counterStore.counter - 1, counterStore.counter)" :key="id">
-      <Alternatives :pick="pick" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
+      <Alternatives :answer="answer" :alt_five="alt_five" :alt_one="alt_one" :alt_two="alt_two" :alt_thee="alt_three"
         :alt_four="alt_four" />
     </div>
   </div>
