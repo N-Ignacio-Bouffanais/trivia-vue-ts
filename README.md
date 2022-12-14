@@ -1,17 +1,23 @@
-# Vue 3 + TypeScript + Vite
+# Trivia game
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Technologies that I used
 
-### Screenshot
+- Vue3 Composition api
+- Typescript
+- Firebase
+- Sass
+- VScode extension: Vue - Volar
+
+## Screenshot
 
 ![solution](./src/assets/trivia.JPG)
 
-## _Ejercicio 2: Trivia_
+## Steps
 
-* 1- Construye una aplicación que cuando ingreses deberá pedir ingresar algunos datos
-* 2- Luego de eso podré elegir una categoría de preguntas y a continuación, mostrará de manera aleatoria preguntas que se encuentran en un banco de preguntas con 5 simples respuestas, pero solo una es la correcta
-* 3- Debe pedirme responder 20 preguntas, y cuando termine la ultima, debe entregarme un mensaje de felicitaciones y agregarme al ranking de usuarios que han terminado el juego de trivia
-* 4- Finalmente debe mostrarme el tiempo que me tomó terminar esta trivia
+- 1 Build an application that when you enter it will ask you to enter some data
+- 2 After that I will be able to choose a category of questions and then it will randomly show questions that are in a question bank with 5 simple answers, but only one is correct
+- 3 You must ask me to answer 20 questions, and when you finish the last one, you must give me a congratulations message and add me to the ranking of users who have finished the trivia game
+- 4 Finally you must show me the time it took me to finish this trivia
 
 ## What I learned
 
@@ -34,32 +40,43 @@ const props = defineProps<{
   alt_four: string;
 }>();
 ```
+
 ## Timer in vue3 setup
 
 ```html
-    <div v-if="loaded" class="Timer_container">
-        <div class="minutos">
-            <p :class="[{ lowTime: lowTime }, { midTime: midTime }, { enoughTime: enoughTime }]" class="displays">{{
-                    Displayminutes
-            }}</p>
-        </div>
-        <span :class="[{ lowTime: lowTime }, { midTime: midTime }, { enoughTime: enoughTime }]">:</span>
-        <div class="segundos">
-            <p :class="[{ lowTime: lowTime }, { midTime: midTime }, { enoughTime: enoughTime }]" class="displays">{{
-                    Displayseconds
-            }}</p>
-        </div>
-    </div>
+<div v-if="loaded" class="Timer_container">
+  <div class="minutos">
+    <p
+      :class="[{ lowTime: lowTime }, { midTime: midTime }, { enoughTime: enoughTime }]"
+      class="displays"
+    >
+      {{ Displayminutes }}
+    </p>
+  </div>
+  <span
+    :class="[{ lowTime: lowTime }, { midTime: midTime }, { enoughTime: enoughTime }]"
+    >:</span
+  >
+  <div class="segundos">
+    <p
+      :class="[{ lowTime: lowTime }, { midTime: midTime }, { enoughTime: enoughTime }]"
+      class="displays"
+    >
+      {{ Displayseconds }}
+    </p>
+  </div>
+</div>
 ```
-```js
-import { ref, onMounted } from 'vue';
 
-let Displayminutes = ref()
+```js
+import { ref, onMounted } from "vue";
+
+let Displayminutes = ref();
 let Displayseconds = ref();
-let loaded = ref(false)
-let lowTime = ref(false)
-let midTime = ref(false)
-let enoughTime = ref(true)
+let loaded = ref(false);
+let lowTime = ref(false);
+let midTime = ref(false);
+let enoughTime = ref(true);
 
 const seconds = 1000;
 const minutes = seconds * 60;
@@ -68,65 +85,64 @@ const startTime = Date.now();
 const futureTime = startTime + setTime;
 
 const Coutdown = () => {
-    const timer = setInterval(() => {
-        const currentTime = Date.now();
-        const gap = futureTime - currentTime;
+  const timer = setInterval(() => {
+    const currentTime = Date.now();
+    const gap = futureTime - currentTime;
 
-        if (gap < 0) {
-            clearInterval(timer)
-            return;
-        }
-        if (gap < 150000) {
-            enoughTime.value = false
-            midTime.value = true
-        }
-        if (gap < 60000) {
-            lowTime.value = true
-        }
-        const mins = Math.floor(gap / minutes)
-        const secs = Math.floor((gap % minutes) / seconds)
+    if (gap < 0) {
+      clearInterval(timer);
+      return;
+    }
+    if (gap < 150000) {
+      enoughTime.value = false;
+      midTime.value = true;
+    }
+    if (gap < 60000) {
+      lowTime.value = true;
+    }
+    const mins = Math.floor(gap / minutes);
+    const secs = Math.floor((gap % minutes) / seconds);
 
-        Displayminutes.value = mins < 10 ? "0" + mins : mins
-        Displayseconds.value = secs < 10 ? "0" + secs : secs
-        loaded.value = true
-    }, 1000)
-}
+    Displayminutes.value = mins < 10 ? "0" + mins : mins;
+    Displayseconds.value = secs < 10 ? "0" + secs : secs;
+    loaded.value = true;
+  }, 1000);
+};
 onMounted(() => {
-    Coutdown()
-})
-
+  Coutdown();
+});
 ```
+
 ```scss
 .Timer_container {
-    color: white;
-    display: flex;
-    justify-content: center;
+  color: white;
+  display: flex;
+  justify-content: center;
 
-    .enoughTime {
-        color: #00e676;
-    }
+  .enoughTime {
+    color: #00e676;
+  }
 
-    .midTime {
-        color: yellow;
-    }
+  .midTime {
+    color: yellow;
+  }
 
-    .lowTime {
-        color: red;
-    }
+  .lowTime {
+    color: red;
+  }
 
+  p {
+    font-size: 1.8rem;
+  }
 
-    p {
-        font-size: 1.8rem;
-    }
+  span {
+    font-size: 5rem;
+  }
 
-    span {
-        font-size: 5rem;
-    }
-
-    .displays {
-        font-size: 6rem;
-        text-align: center;
-    }
+  .displays {
+    font-size: 6rem;
+    text-align: center;
+  }
 }
 ```
 

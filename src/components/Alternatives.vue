@@ -16,7 +16,6 @@ const props = defineProps<{
 
 let picked = ref("");
 let valor = ref("");
-let res = ref("");
 
 watch(valor,()=>{
   if(valor.value == props.answer){
@@ -29,8 +28,7 @@ watch(valor,()=>{
 <template>
   <div>
     <!-- {{props.answer}}
-    {{valor}}
-    {{res}} -->
+    {{valor}}-->
     <p>
       <input @click="() => valor = props.alt_one" type="radio" id="one" value="One" v-model="picked"/>
       <label for="one">{{ props.alt_one }}</label>
