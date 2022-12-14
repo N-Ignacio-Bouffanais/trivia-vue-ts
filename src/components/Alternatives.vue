@@ -28,9 +28,9 @@ watch(valor,()=>{
 </script>
 <template>
   <div>
-    {{props.answer}}
+    <!-- {{props.answer}}
     {{valor}}
-    {{res}}
+    {{res}} -->
     <p>
       <input @click="() => valor = props.alt_one" type="radio" id="one" value="One" v-model="picked"/>
       <label for="one">{{ props.alt_one }}</label>
