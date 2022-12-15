@@ -3,8 +3,8 @@ import { defineStore } from "pinia";
 export const useCounterStore = defineStore("counter", {
   state: () => ({
     counter: 1,
-    picked: '',
     points: 0,
+    alt_correct : false,
   }),
   actions: {
     incrementBy(value: number) {
@@ -15,9 +15,6 @@ export const useCounterStore = defineStore("counter", {
     },
     reset(){
       this.counter = 1
-    },
-    reset_pick(){
-      this.picked = ''
     },
     incrementPoint(value: number){
       this.points+= value
