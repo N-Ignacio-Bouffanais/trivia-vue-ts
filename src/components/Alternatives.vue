@@ -18,15 +18,12 @@ const props = defineProps<{
 
 let picked = ref("");
 let valor = ref("");
-let correct = ref(false);
 
 watch(valor, () => {
   if (valor.value == props.answer) {
-    // correct.value = true;
     counterStore.alt_correct = true;
     console.log(counterStore.alt_correct)
   } else {
-    // correct.value = false;
     counterStore.alt_correct = false;
     console.log(counterStore.alt_correct)
   }

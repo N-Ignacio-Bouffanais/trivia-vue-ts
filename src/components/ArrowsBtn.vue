@@ -7,6 +7,7 @@ const router = useRouter();
 
 const Finish = () => {
     router.push('/ranking')
+    counterStore.stop = true;
 }
 
 </script>
@@ -52,8 +53,6 @@ const Finish = () => {
         margin-right: 2rem;
         border-radius: 50%;
         width: 4.5rem;
-        height: 4.5rem;
-        font-size: 2.2rem;
     }
 
     .back {
@@ -62,10 +61,6 @@ const Finish = () => {
 
     .next {
         background-color: #00e676;
-    }
-
-    .btn {
-        color: white;
     }
 
     .finalizar {

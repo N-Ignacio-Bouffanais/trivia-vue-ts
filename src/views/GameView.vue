@@ -8,6 +8,11 @@ let selected = ref(false);
 let category_sel = ref(true);
 let init = ref(false);
 
+const reinitTimer = () => {
+  counterStore.counter = 1;
+  counterStore.stop = false;
+}
+
 const showquestion = () => {
   return (selected.value = true), (category_sel.value = false), (init.value = true);
 };
@@ -17,6 +22,7 @@ const hidequestion = () => {
 let result = ref('')
 const Anime = () => {
   return result.value = 'anime'
+
 }
 const History = () => {
   return result.value = 'history'
@@ -34,6 +40,7 @@ const Music = () => {
 const ArrowsBtn = defineAsyncComponent(() => import("../components/ArrowsBtn.vue"));
 const Question = defineAsyncComponent(() => import("../components/Question.vue"));
 const Timer = defineAsyncComponent(() => import("../components/Timer.vue"));
+const Button = defineAsyncComponent(() => import('../components/Button.vue'));
 
 </script>
 <template>
@@ -41,13 +48,12 @@ const Timer = defineAsyncComponent(() => import("../components/Timer.vue"));
     <div v-show="unref(selected) === true" class="question container">
       <div class="list-title">
         <p>Pregunta N°: {{ counterStore.counter }}</p>
-        <button class="btn largue" @click="
+        <Button :text="'Regresar'" :width="'12'" :bg="'#00b0ff'" class="largue" @click="
           () => {
             hidequestion(), counterStore.reset();
           }
         ">
-          Regresar
-        </button>
+        </Button>
       </div>
       <Suspense>
         <Question :category="unref(result)" />
@@ -66,19 +72,19 @@ const Timer = defineAsyncComponent(() => import("../components/Timer.vue"));
       <h1>Selecciona una categoria</h1>
     </div>
     <div v-if="unref(category_sel) === true" class="category container">
-      <button @click="() => { showquestion(); Anime(); }" class="btn anime">
+      <button @click="() => { reinitTimer(); showquestion(); Anime(); }" class="btn anime">
         ANIME
       </button>
-      <button @click="() => { showquestion(); History(); }" class="btn history">
+      <button @click="() => { reinitTimer(); showquestion(); History(); }" class="btn history">
         HISTORIA
       </button>
-      <button @click="() => { showquestion(); Music(); }" class="btn music">
+      <button @click="() => { reinitTimer(); showquestion(); Music(); }" class="btn music">
         MUSICA
       </button>
-      <button @click="() => { showquestion(); Games(); }" class="btn videogames">
+      <button @click="() => { reinitTimer(); showquestion(); Games(); }" class="btn videogames">
         VIDEOJUEGOS
       </button>
-      <button @click="() => { showquestion(); Maths(); }" class="btn math">
+      <button @click="() => { reinitTimer(); showquestion(); Maths(); }" class="btn math">
         MATEMÁTICAS
       </button>
     </div>
@@ -93,8 +99,9 @@ const Timer = defineAsyncComponent(() => import("../components/Timer.vue"));
     justify-items: center;
     display: grid;
   }
-  .title{
-    h1{
+
+  .title {
+    h1 {
       font-size: 2.8rem;
       width: 25rem;
       margin: 4rem auto;
@@ -123,23 +130,12 @@ const Timer = defineAsyncComponent(() => import("../components/Timer.vue"));
         color: #eb3936;
       }
 
-      .largue {
-        background-color: #00b0ff;
-        border-radius: 0.8rem;
-        height: 4.8rem;
-        width: 12rem;
-        margin: 0 0.8rem;
-      }
     }
 
     .alternatives {
       width: 100%;
     }
 
-    .btn {
-      color: white;
-      font-size: 1.8rem;
-    }
   }
 
   .category {

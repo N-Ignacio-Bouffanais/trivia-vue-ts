@@ -5,6 +5,9 @@ export const useCounterStore = defineStore("counter", {
     counter: 1,
     points: 0,
     alt_correct : false,
+    min_r: 0,
+    sec_r: 0,
+    stop : false,
   }),
   actions: {
     incrementBy(value: number) {
@@ -21,6 +24,6 @@ export const useCounterStore = defineStore("counter", {
     },
     decrementPoint(value: number){
       this.points -= value;
-    }
+    },
   },
 });

@@ -2,10 +2,12 @@
 import { defineAsyncComponent } from 'vue';
 
 const Banner = defineAsyncComponent(() => import('../components/Banner.vue'))
+const Button = defineAsyncComponent(() => import('../components/Button.vue'))
 </script>
 <template>
     <div class="container">
         <h1>Ranking</h1>
+        <Button :text="'Jugar otra vez!'"/>
         <Banner />
     </div>
 </template>

@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
+import { useCounterStore } from "../stores/counter";
+const counterStore = useCounterStore();
 
 let Displayminutes = ref()
 let Displayseconds = ref();
@@ -19,6 +21,10 @@ const Coutdown = () => {
         const currentTime = Date.now();
         const gap = futureTime - currentTime;
 
+        if(counterStore.stop == true){
+            clearInterval(timer)
+            return;
+        }
         if (gap < 0) {
             clearInterval(timer)
             return;
@@ -36,11 +42,17 @@ const Coutdown = () => {
         Displayminutes.value = mins < 10 ? "0" + mins : mins
         Displayseconds.value = secs < 10 ? "0" + secs : secs
         loaded.value = true
+        
     }, 1000)
 }
 onMounted(() => {
     Coutdown()
 })
+watch([Displayminutes, Displayseconds],()=>{
+    counterStore.min_r = Displayminutes.value;
+    counterStore.sec_r = Displayseconds.value;
+})
+
 
 </script>
 <template>
