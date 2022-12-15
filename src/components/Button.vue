@@ -3,12 +3,13 @@ const props = defineProps<{
     text: String;
     width: String;
     bg: any;
+    font?: number;
 }>();
 
 </script>
 <template>
     <div>
-        <button class="btn" :style="{ 'width': width + 'rem', 'background-color': bg}">{{props.text}}</button>
+        <button class="btn" :style="{ 'width': width + 'rem', 'background-color': bg, 'font-size': font + 'rem'}">{{props.text}}</button>
     </div>
 </template>
 <style lang="scss">

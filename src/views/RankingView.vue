@@ -1,13 +1,18 @@
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
-
+import { useRouter } from "vue-router";
+const router = useRouter();
 const Banner = defineAsyncComponent(() => import('../components/Banner.vue'))
 const Button = defineAsyncComponent(() => import('../components/Button.vue'))
+
+const Play = () => {
+    router.push('/game')
+}
 </script>
 <template>
     <div class="container">
         <h1>Ranking</h1>
-        <Button :text="'Jugar otra vez!'"/>
+        <Button @click="Play()" :text="'Otra vez!'" :width="'12'" :bg="'#00bcd4'" style="margin: 1rem;"/>
         <Banner />
     </div>
 </template>
