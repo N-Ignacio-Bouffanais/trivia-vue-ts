@@ -9,20 +9,14 @@ const Finish = () => {
     router.push('/ranking')
     counterStore.stop = true;
 }
+const ResetPicked = () =>{
+    counterStore.alt_picked = '';
+}
 
 </script>
 <template>
     <div class="arrows">
-        <button v-show="counterStore.counter > 1" class="btn short back" @click="
-            () => {
-                if (counterStore.counter > 1) {
-                    counterStore.decrementBy(1);
-                }
-            }
-        ">
-            ◀
-        </button>
-        <button v-show="counterStore.counter < 10" class="btn short next" @click="
+        <button v-show="counterStore.counter < 10 && counterStore.alt_picked != '' " class="btn short next" @click="
             () => {
                 if (counterStore.counter < 10) {
                     counterStore.incrementBy(1);
@@ -30,6 +24,7 @@ const Finish = () => {
                         counterStore.incrementPoint(1);
                     }
                 }
+                ResetPicked()
             }
         ">
             ►

@@ -15,7 +15,7 @@ const counterStore = useCounterStore();
         flex-wrap: wrap;
         justify-content: space-between;
         border-radius: 1rem;
-        outline: blueviolet solid 0.5rem;
+        outline: red solid 0.5rem;
         background-color: rgb(41, 40, 40);
         padding: 0.8rem 1rem;
         p{

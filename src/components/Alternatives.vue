@@ -14,13 +14,13 @@ const props = defineProps<{
   alt_four: string;
 }>();
 
-
-
 let picked = ref("");
 let valor = ref("");
 
 watch(valor, () => {
+  counterStore.alt_picked = valor.value;
   if (valor.value == props.answer) {
+    counterStore.alt_picked = valor.value;
     counterStore.alt_correct = true;
     console.log(counterStore.alt_correct)
   } else {

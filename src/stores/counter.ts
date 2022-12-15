@@ -4,6 +4,7 @@ export const useCounterStore = defineStore("counter", {
   state: () => ({
     counter: 1,
     points: 0,
+    alt_picked:'',
     alt_correct : false,
     min_r: 0,
     sec_r: 0,
