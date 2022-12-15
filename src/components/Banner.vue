@@ -5,7 +5,7 @@ const counterStore = useCounterStore();
 <template>
     <div class="banner">
         <p>Usuario:{{ counterStore.user_n }}</p>
-        <p>Puntaje Obtenido: {{ counterStore.points }}</p>
+        <p>Puntaje Obtenido: {{ counterStore.points + 1}}</p>
         <p>Tiempo: 0{{counterStore.min_r}}:{{counterStore.sec_r}}</p>
     </div>
 </template>

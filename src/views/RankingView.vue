@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue';
 import { useRouter } from "vue-router";
+import { useCounterStore } from "../stores/counter";
+
+const counterStore = useCounterStore();
 const router = useRouter();
 const Banner = defineAsyncComponent(() => import('../components/Banner.vue'))
 const Button = defineAsyncComponent(() => import('../components/Button.vue'))
@@ -8,11 +11,14 @@ const Button = defineAsyncComponent(() => import('../components/Button.vue'))
 const Play = () => {
     router.push('/game')
 }
+const ResetPoints = () =>{
+    counterStore.points = 0
+}
 </script>
 <template>
     <div class="container">
         <h1>Ranking</h1>
-        <Button @click="Play()" :text="'Otra vez!'" :width="'12'" :bg="'#00bcd4'" style="margin: 1rem;"/>
+        <Button @click="() => { Play(); ResetPoints() }" :text="'Otra vez!'" :width="'12'" :bg="'#00bcd4'" style="margin: 1rem;"/>
         <Banner />
     </div>
 </template>

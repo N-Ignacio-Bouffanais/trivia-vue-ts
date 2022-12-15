@@ -66,7 +66,7 @@ const music_questions = [
       "Qué banda canta el éxito de los 90s I Don’t Want to Miss a Thing?",
     alt_one: "Bon Jovi",
     alt_two: "Led Zeppelin",
-    alt_three: "Turles",
+    alt_three: "Aerosmith",
     alt_four: "Nirvanna",
     alt_five: "AC DC",
     answer: "Aerosmith",

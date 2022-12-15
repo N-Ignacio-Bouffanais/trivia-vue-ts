@@ -18,7 +18,7 @@ const ResetPicked = () =>{
     <div class="arrows">
         <button v-show="counterStore.counter < 10 && counterStore.alt_picked != '' " class="btn short next" @click="
             () => {
-                if (counterStore.counter < 10) {
+                if (counterStore.counter <= 10) {
                     counterStore.incrementBy(1);
                     if (counterStore.alt_correct === true) {
                         counterStore.incrementPoint(1);
