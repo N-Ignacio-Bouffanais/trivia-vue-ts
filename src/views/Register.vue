@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "vue-router";
 
@@ -29,6 +29,7 @@ const signInWithGoogle = () => {
             console.log(error)
         })
 }
+
 
 </script>
 <template>

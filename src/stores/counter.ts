@@ -8,6 +8,7 @@ export const useCounterStore = defineStore("counter", {
     min_r: 0,
     sec_r: 0,
     stop : false,
+    user_n: "",
   }),
   actions: {
     incrementBy(value: number) {

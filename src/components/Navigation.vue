@@ -2,6 +2,8 @@
 import { onMounted, ref } from 'vue';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useRouter } from 'vue-router';
+import { useCounterStore } from "../stores/counter";
+const counterStore = useCounterStore();
 
 const router = useRouter();
 const isLoggedIn = ref(false);
@@ -12,6 +14,8 @@ onMounted(()=>{
   onAuthStateChanged(auth, (user) => {
     if(user) {
       isLoggedIn.value = true;
+      console.log(user.displayName);
+      counterStore.user_n = user.displayName;
     } else {
       isLoggedIn.value = false;
     }

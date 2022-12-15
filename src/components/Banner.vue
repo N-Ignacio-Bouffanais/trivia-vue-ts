@@ -4,9 +4,9 @@ const counterStore = useCounterStore();
 </script>
 <template>
     <div class="banner">
-        <p>Usuario:</p>
+        <p>Usuario:{{ counterStore.user_n }}</p>
         <p>Puntaje Obtenido: {{ counterStore.points }}</p>
-        <p>Tiempo: {{counterStore.min_r}}:{{counterStore.sec_r}}</p>
+        <p>Tiempo: 0{{counterStore.min_r}}:{{counterStore.sec_r}}</p>
     </div>
 </template>
 <style lang="scss">
@@ -22,7 +22,7 @@ const counterStore = useCounterStore();
             font-size: 2rem;
             margin: 0.8rem 0 0 1.5rem;
             color: white;
-            width: 18rem;
+            width: 22rem;
             text-align: start;
         }
     }

@@ -49,8 +49,8 @@ onMounted(() => {
     Coutdown()
 })
 watch([Displayminutes, Displayseconds],()=>{
-    counterStore.min_r = Displayminutes.value;
-    counterStore.sec_r = Displayseconds.value;
+    counterStore.min_r = 4 - Displayminutes.value;
+    counterStore.sec_r = 60 - Displayseconds.value;
 })
 
 
