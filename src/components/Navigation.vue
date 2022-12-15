@@ -8,6 +8,7 @@ const counterStore = useCounterStore();
 const router = useRouter();
 const isLoggedIn = ref(false);
 let auth:any;
+let user = ref();
 
 onMounted(()=>{
   auth = getAuth();
@@ -15,7 +16,7 @@ onMounted(()=>{
     if(user) {
       isLoggedIn.value = true;
       console.log(user.displayName);
-      counterStore.user_n = user.displayName;
+      user.displayName != null ? counterStore.user_n = user.displayName : counterStore.user_n = ''
     } else {
       isLoggedIn.value = false;
     }
