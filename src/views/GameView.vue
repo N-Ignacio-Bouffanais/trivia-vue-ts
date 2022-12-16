@@ -69,7 +69,7 @@ const Button = defineAsyncComponent(() => import('../components/Button.vue'));
       <Timer :init="unref(init)" v-if="unref(selected) === true" />
     </Suspense>
     <div class="title" v-if="unref(category_sel) === true">
-      <h1>Selecciona una categoria</h1>
+      <h1>Seleccione una categoria</h1>
     </div>
     <div v-if="unref(category_sel) === true" class="category container">
       <button @click="() => { reinitTimer(); showquestion(); Anime(); }" class="btn anime">
@@ -102,10 +102,10 @@ const Button = defineAsyncComponent(() => import('../components/Button.vue'));
 
   .title {
     h1 {
-      font-size: 2.8rem;
+      font-size: 3.4rem;
       width: 25rem;
       margin: 3.5rem auto;
-      color: white;
+      color: #00c4ff;
       text-align: center;
     }
   }
@@ -159,7 +159,7 @@ const Button = defineAsyncComponent(() => import('../components/Button.vue'));
       background-color: #e91e63;
 
       &:hover {
-        background-color: #e0366f;
+        background-color: #d82c66;
       }
     }
 

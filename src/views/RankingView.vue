@@ -20,7 +20,7 @@ const ResetPoints = () =>{
         <h1>Ranking</h1>
         <Banner class="green" :user="counterStore.user_n" :points="counterStore.points" :min="counterStore.min_r" :sec="counterStore.sec_r"/>
         <div class="another-try">
-            <Button @click="() => { Play(); ResetPoints() }" :text="'Otra vez!'" :width="'12'" :bg="'#00bcd4'"
+            <Button @click="() => { Play(); ResetPoints() }" :text="'Otra vez!'" :width="'12'" :bg="'#ea1b64'"
                 style="margin: 2rem;" />
         </div>
     </div>
@@ -30,12 +30,13 @@ const ResetPoints = () =>{
     margin: 0 6vw;
     h1{
         margin: 2.4rem auto;
-        font-size: 3rem;
-        color: white;
+        font-size: 3.6rem;
+        color: #00c4ff;
         text-align: center;
     }
     .another-try{
         display: flex;
+        justify-content: flex-end;
     }
 }
 $red-color: #ff0613;
