@@ -104,7 +104,7 @@ const Button = defineAsyncComponent(() => import('../components/Button.vue'));
     h1 {
       font-size: 2.8rem;
       width: 25rem;
-      margin: 4rem auto;
+      margin: 3.5rem auto;
       color: white;
       text-align: center;
     }
@@ -115,7 +115,7 @@ const Button = defineAsyncComponent(() => import('../components/Button.vue'));
     width: 100%;
     background-color: #242424;
     border-radius: 1rem;
-    outline: #00bcd4 solid 0.2rem;
+    outline: #00bcd4 solid 0.3rem;
 
     .list-title {
       display: flex;
@@ -126,8 +126,9 @@ const Button = defineAsyncComponent(() => import('../components/Button.vue'));
       margin: 0.5rem 0;
 
       p {
-        font-size: 2.4rem;
-        color: #eb3936;
+        font-size: 2.6rem;
+        color: #ea1b64;
+        font-weight: 500;
       }
 
     }
@@ -146,7 +147,7 @@ const Button = defineAsyncComponent(() => import('../components/Button.vue'));
 
     button {
       width: 24rem;
-      height: 5.2rem;
+      height: 5.4rem;
       font-size: 1.6rem;
       border-radius: 0.7rem;
       color: white;

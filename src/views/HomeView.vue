@@ -29,7 +29,7 @@ const Play = () => {
     p{
         font-size: 1.8rem;
         letter-spacing: 0.1rem;
-        margin: 1.2rem auto;
+        margin: 1.5rem auto;
         text-align: center;
     }
     button{
@@ -39,7 +39,7 @@ const Play = () => {
         border-radius: 0.8rem;
         width: 22rem;
         height: 4rem;
-        margin: 1.5rem auto;
+        margin: 2rem auto;
         cursor: pointer;
     }
 }

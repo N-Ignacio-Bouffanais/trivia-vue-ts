@@ -1,29 +1,35 @@
 <script lang="ts" setup>
-import { useCounterStore } from "../stores/counter";
-const counterStore = useCounterStore();
+const props = defineProps<{
+    user:string,
+    points: number,
+    min: number,
+    sec: number,
+}>();
 </script>
 <template>
     <div class="banner">
-        <p>Usuario:{{ counterStore.user_n }}</p>
-        <p>Puntaje Obtenido: {{ counterStore.points + 1}}</p>
-        <p>Tiempo: 0{{counterStore.min_r}}:{{counterStore.sec_r}}</p>
+        <p>Usuario: {{ props.user }}</p>
+        <p>Puntaje Obtenido: {{ props.points + 1 }} / 10</p>
+        <p>Tiempo: {{ props.min}}:{{ props.sec }}</p>
     </div>
 </template>
 <style lang="scss">
-.banner{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        border-radius: 1rem;
-        outline: red solid 0.5rem;
-        background-color: rgb(41, 40, 40);
-        padding: 0.8rem 1rem;
-        p{
-            font-size: 2rem;
-            margin: 0.8rem 0 0 1.5rem;
-            color: white;
-            width: 22rem;
-            text-align: start;
-        }
+.banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+    grid-auto-rows: 2.5rem;
+    column-gap: 1rem;
+    justify-items: start;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 0.5rem 1.8rem 0;
+    margin: 2rem auto;
+
+    p {
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-align: start;
     }
+}
+
 </style>

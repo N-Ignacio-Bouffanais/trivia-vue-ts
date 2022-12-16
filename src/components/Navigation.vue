@@ -52,16 +52,18 @@ const handleSubmit = () => {
   flex-wrap: wrap;
 
   a {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
+    font-weight: 500;
     text-decoration: none;
-    color: white;
+    color: #14e1b4;
     margin: 0.5rem 2vw;
   }
   button{
     border: none;
     border-radius: 0.5rem;
-    font-size: 2.2rem;
-    color: white;
+    font-size: 2.3rem;
+    font-weight: 500;
+    color: #14e1b4;
     background-color: rgb(17, 17, 17);
     cursor: pointer;
     margin: 0.5rem 2vw;
