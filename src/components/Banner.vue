@@ -13,7 +13,7 @@ const props = defineProps<{
     <div class="banner">
         <p>Usuario: {{ props.user }}</p>
         <p>Categoria: {{categoryStore.result}}</p>
-        <p>Puntaje Obtenido: {{ props.points + 1 }} / 10</p>
+        <p>Puntaje Obtenido: {{ props.points }} / 15</p>
         <p>Tiempo: {{ props.min}}:{{ props.sec }}</p>
     </div>
 </template>

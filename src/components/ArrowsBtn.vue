@@ -16,9 +16,9 @@ const ResetPicked = () =>{
 </script>
 <template>
     <div class="arrows">
-        <button v-show="counterStore.counter < 10 && counterStore.alt_picked != '' " class="btn short next" @click="
+        <button v-show="counterStore.counter < 15 && counterStore.alt_picked != '' " class="btn short next" @click="
             () => {
-                if (counterStore.counter <= 10) {
+                if (counterStore.counter <= 15) {
                     counterStore.incrementBy(1);
                     if (counterStore.alt_correct === true) {
                         counterStore.incrementPoint(1);
@@ -29,8 +29,11 @@ const ResetPicked = () =>{
         ">
             ►
         </button>
-        <button v-show="counterStore.counter == 10" class="btn finalizar" @click="() => {
-            if (counterStore.counter == 10) {
+        <button v-show="counterStore.counter == 15" class="btn finalizar" @click="() => {
+            if (counterStore.counter == 15) {
+                if (counterStore.alt_correct === true) {
+                    counterStore.incrementPoint(1);
+                }
                 Finish()
             }
         }">Listo</button>
