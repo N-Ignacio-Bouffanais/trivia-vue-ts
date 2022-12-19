@@ -2,7 +2,10 @@
 import { ref, unref, defineAsyncComponent } from "vue";
 import Alternative from "../components/Alternative.vue";
 import { useCounterStore } from "../stores/counter";
+import { useCategoryStore } from "../stores/category";
+
 const counterStore = useCounterStore();
+const categoryStore = useCategoryStore();
 
 let selected = ref(false);
 let category_sel = ref(true);
@@ -21,19 +24,24 @@ const hidequestion = () => {
 };
 let result = ref('')
 const Anime = () => {
+  categoryStore.result = 'anime'
   return result.value = 'anime'
 
 }
 const History = () => {
+  categoryStore.result = 'historia'
   return result.value = 'history'
 }
 const Games = () => {
+  categoryStore.result = 'videojuegos'
   return result.value = 'games'
 }
 const Maths = () => {
+  categoryStore.result = 'matematicas'
   return result.value = 'math'
 }
 const Music = () => {
+  categoryStore.result = 'musica'
   return result.value = 'music'
 }
 

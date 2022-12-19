@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-import { defineAsyncComponent } from 'vue';
+import { defineAsyncComponent, ref, onMounted } from 'vue';
 import { useRouter } from "vue-router";
 import { useCounterStore } from "../stores/counter";
+import { db }  from "../main"
+import { collection, getDocs } from "firebase/firestore";
 
 const counterStore = useCounterStore();
 const router = useRouter();
@@ -14,6 +16,14 @@ const Play = () => {
 const ResetPoints = () =>{
     counterStore.points = 0
 }
+
+onMounted( async()=>{
+    const querySnapshot = await getDocs(collection(db, "ranking"));
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+    });
+})
+
 </script>
 <template>
     <div class="container">
