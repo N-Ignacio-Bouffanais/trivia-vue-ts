@@ -36,9 +36,6 @@ onMounted(async () => {
         });
         scoreContainer.innerHTML = html
     })
-    if (typeof html === 'string') {
-        console.log(html.length);
-    }
 })
 
 
@@ -46,7 +43,7 @@ onMounted(async () => {
 <template>
     <div class="container">
         <h1>Ranking</h1>
-        <Banner v-show="counterStore.points != 0" class="yellow" :user="counterStore.user_n"
+        <Banner v-if="counterStore.points != 0" class="yellow" :user="counterStore.user_n"
             :points="counterStore.points" :min="counterStore.min_r" :sec="counterStore.sec_r" />
         <div class="green" id="score"></div>
         <div class="another-try">
