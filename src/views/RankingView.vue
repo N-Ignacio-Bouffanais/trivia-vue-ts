@@ -19,15 +19,12 @@ const ResetPoints = () => {
 }
 let html = ''
 
-onMounted(async () => {
+onMounted( async ()=>{
     const scoreContainer = document.getElementById("score")
 
-    // const q = query(collection(db, "ranking"));
-    // const querySnapshot = await getDocs(q);
-
-    onSnapshot(collection(db, "ranking"), (querySnapshot) => {
-
-        querySnapshot.forEach((doc) => {
+    const q = query(collection(db, "ranking"), orderBy("puntaje", "desc"))
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
             const score = doc.data()
             html += `
             <div class="banner">
@@ -39,8 +36,6 @@ onMounted(async () => {
         `
         });
         scoreContainer.innerHTML = html
-    })
-
 })
 
 
