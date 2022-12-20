@@ -15,7 +15,6 @@ onMounted(()=>{
   onAuthStateChanged(auth, (user) => {
     if(user) {
       isLoggedIn.value = true;
-      console.log(user.displayName);
       user.displayName != null ? counterStore.user_n = user.displayName : counterStore.user_n = ''
     } else {
       isLoggedIn.value = false;

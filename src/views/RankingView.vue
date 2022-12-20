@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { defineAsyncComponent, onMounted } from 'vue';
+import { defineAsyncComponent, onMounted, ref } from 'vue';
 import { useRouter } from "vue-router";
 import { useCounterStore } from "../stores/counter";
 import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
@@ -16,13 +16,13 @@ const Play = () => {
 const ResetPoints = () => {
     counterStore.points = 0
 }
-let html = ''
+let html: string
 
-onMounted( async ()=>{
-    const scoreContainer = document.getElementById("score")
+onMounted(async () => {
+    let scoreContainer = document.getElementById("score") as any | null
     const q = query(collection(db, "ranking"), orderBy("puntaje", "desc"))
 
-    onSnapshot(q,(querySnapshot)=>{
+    onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
             const score = doc.data()
             html += `
@@ -36,6 +36,9 @@ onMounted( async ()=>{
         });
         scoreContainer.innerHTML = html
     })
+    if (typeof html === 'string') {
+        console.log(html.length);
+    }
 })
 
 
@@ -43,8 +46,8 @@ onMounted( async ()=>{
 <template>
     <div class="container">
         <h1>Ranking</h1>
-        <Banner v-show="counterStore.points != 0" class="yellow" :user="counterStore.user_n" :points="counterStore.points" :min="counterStore.min_r"
-            :sec="counterStore.sec_r" />
+        <Banner v-show="counterStore.points != 0" class="yellow" :user="counterStore.user_n"
+            :points="counterStore.points" :min="counterStore.min_r" :sec="counterStore.sec_r" />
         <div class="green" id="score"></div>
         <div class="another-try">
             <Button @click="() => { Play(); ResetPoints() }" :text="'Otra vez!'" :width="'12'" :bg="'#ea1b64'"
