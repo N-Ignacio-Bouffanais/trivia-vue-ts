@@ -1,13 +1,24 @@
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
 import { useCounterStore } from "../stores/counter";
+import { useCategoryStore } from "../stores/category";
+import { db } from "../main";
+import { doc, setDoc } from "firebase/firestore"
 
 const counterStore = useCounterStore();
+const categoryStore = useCategoryStore();
 const router = useRouter();
 
-const Finish = () => {
+const Finish = async () => {
     router.push('/ranking')
     counterStore.stop = true;
+    await setDoc(doc(db, "ranking", `${counterStore.user_n}`), {
+        usuario: counterStore.user_n,
+        categoria: categoryStore.result,
+        puntaje: counterStore.points,
+        minutos: counterStore.min_r, 
+        segundos: counterStore.sec_r,
+    });
 }
 const ResetPicked = () =>{
     counterStore.alt_picked = '';

@@ -3,18 +3,19 @@ import { useCategoryStore } from '../stores/category';
 const categoryStore = useCategoryStore();
 
 const props = defineProps<{
-    user:string,
+    user: string,
     points: number,
     min: number,
     sec: number,
 }>();
+
 </script>
 <template>
     <div class="banner">
         <p>Usuario: {{ props.user }}</p>
-        <p>Categoria: {{categoryStore.result}}</p>
+        <p>Categoria: {{ categoryStore.result }}</p>
         <p>Puntaje Obtenido: {{ props.points }} / 15</p>
-        <p>Tiempo: {{ props.min}}:{{ props.sec }}</p>
+        <p>Tiempo: {{ props.min }}:{{ props.sec }}</p>
     </div>
 </template>
 <style lang="scss">
@@ -35,5 +36,4 @@ const props = defineProps<{
         text-align: start;
     }
 }
-
 </style>
