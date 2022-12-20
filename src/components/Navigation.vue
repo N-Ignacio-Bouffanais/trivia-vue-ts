@@ -35,8 +35,8 @@ const handleSubmit = () => {
     <router-link to="/">Inicio</router-link>
     <router-link to="/game">Game</router-link>
     <router-link to="/ranking">Ranking</router-link>
-    <router-link to="/register">Registo</router-link>
-    <router-link to="/signin">Ingreso</router-link>
+    <router-link v-show="!isLoggedIn" to="/register">Registo</router-link>
+    <router-link v-show="!isLoggedIn" to="/signin">Ingreso</router-link>
     <button @click="handleSubmit" v-if="isLoggedIn">Cerrar Sesion</button>
   </div>
 </template>
