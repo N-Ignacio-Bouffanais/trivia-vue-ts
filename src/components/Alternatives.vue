@@ -22,10 +22,8 @@ watch(valor, () => {
   if (valor.value == props.answer) {
     counterStore.alt_picked = valor.value;
     counterStore.alt_correct = true;
-    console.log(counterStore.alt_correct)
   } else {
     counterStore.alt_correct = false;
-    console.log(counterStore.alt_correct)
   }
 })
 
