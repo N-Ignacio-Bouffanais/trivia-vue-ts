@@ -2,7 +2,7 @@
 import { defineAsyncComponent, onMounted } from 'vue';
 import { useRouter } from "vue-router";
 import { useCounterStore } from "../stores/counter";
-import { collection, query, getDocs, onSnapshot, orderBy } from "firebase/firestore";
+import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import { db } from "../main";
 
 const counterStore = useCounterStore();
@@ -20,9 +20,7 @@ let html = ''
 
 onMounted( async ()=>{
     const scoreContainer = document.getElementById("score")
-
     const q = query(collection(db, "ranking"), orderBy("puntaje", "desc"))
-    const querySnapshot = await getDocs(q);
 
     onSnapshot(q,(querySnapshot)=>{
         querySnapshot.forEach((doc) => {
@@ -45,7 +43,7 @@ onMounted( async ()=>{
 <template>
     <div class="container">
         <h1>Ranking</h1>
-        <Banner v-show="" class="yellow" :user="counterStore.user_n" :points="counterStore.points" :min="counterStore.min_r"
+        <Banner v-show="counterStore.points != 0" class="yellow" :user="counterStore.user_n" :points="counterStore.points" :min="counterStore.min_r"
             :sec="counterStore.sec_r" />
         <div class="green" id="score"></div>
         <div class="another-try">
