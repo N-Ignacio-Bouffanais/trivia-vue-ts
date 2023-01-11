@@ -94,8 +94,8 @@ const props = defineProps<{
   }
 
   input {
-    height: 2.2rem;
-    width: 2.2rem;
+    height: 2.8rem;
+    width: 2.8rem;
     border-radius: 50%;
     margin-right: 0.8rem;
   }
